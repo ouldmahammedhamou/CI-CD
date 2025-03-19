@@ -1,5 +1,5 @@
 name: CI Pipeline
-#### test 
+#### test 11
 on:
   push:
     branches:
@@ -14,6 +14,9 @@ jobs:
 
       - name: Installation de Kind
         uses: helm/kind-action@v1.8.0
+        with:
+          config: kind-config.yaml
+          cluster_name: kind
 
       - name: Construire l'image Docker
         run: |
@@ -28,9 +31,14 @@ jobs:
           docker tag ouldmahammed/hello-world-node:${{ github.sha }} ouldmahammed/hello-world-node:latest
           docker push ouldmahammed/hello-world-node:latest
 
+      - name: Vérifier que le cluster est prêt
+        run: |
+          kubectl cluster-info
+          kubectl get nodes
+
       - name: Charger l'image dans Kind
         run: |
-          kind load docker-image ouldmahammed/hello-world-node:latest
+          kind load docker-image ouldmahammed/hello-world-node:latest --name kind
 
       - name: Déployer sur Kind
         run: |
