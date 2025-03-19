@@ -1,5 +1,5 @@
 name: CI Pipeline
-#### test 21
+#### test 2
 on:
   push:
     branches:
@@ -57,11 +57,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: azure/setup-kubectl@v3
-      - name: Installation de Kind
-        uses: helm/kind-action@v1.8.0
-        with:
-          config: kind-config.yaml
-          cluster_name: kind
         with:
           version: 'latest'
       - name: Déployer sur Kubernetes
