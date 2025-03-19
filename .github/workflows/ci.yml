@@ -56,11 +56,32 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: azure/setup-kubectl@v3
+      
+      - name: Installation de Kind
+        uses: helm/kind-action@v1.8.0
         with:
-          version: 'latest'
-      - name: Déployer sur Kubernetes
+          config: kind-config.yaml
+          cluster_name: kind
+
+      - name: Configurer kubectl
         run: |
-          kubectl set image deployment/hello-world-node hello-world-node=ouldmahammed/hello-world-node:latest 
-        env:
-          KUBECONFIG: ${{ secrets.KUBECONFIG }}
+          mkdir -p $HOME/.kube
+          kind get kubeconfig --name kind > $HOME/.kube/config
+          chmod 600 $HOME/.kube/config
+
+      - name: Charger l'image dans Kind
+        run: |
+          kind load docker-image ouldmahammed/hello-world-node:latest --name kind
+
+      - name: Déployer sur Kind
+        run: |
+          kubectl create deployment hello-world-node --image=ouldmahammed/hello-world-node:latest || true
+          kubectl rollout restart deployment hello-world-node
+          kubectl expose deployment hello-world-node --type=LoadBalancer --port=80 --target-port=3000 || true
+          kubectl wait --for=condition=available --timeout=300s deployment/hello-world-node
+
+      - name: Vérifier le déploiement
+        run: |
+          kubectl get pods -o wide
+          kubectl get services
+          kubectl get deployments
