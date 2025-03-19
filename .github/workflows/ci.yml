@@ -63,6 +63,10 @@ jobs:
           config: kind-config.yaml
           cluster_name: kind
 
+      - name: Construire l'image Docker localement
+        run: |
+          docker build -t ouldmahammed/hello-world-node:latest .
+
       - name: Configurer kubectl
         run: |
           mkdir -p $HOME/.kube
@@ -71,6 +75,7 @@ jobs:
 
       - name: Charger l'image dans Kind
         run: |
+          docker pull ouldmahammed/hello-world-node:latest
           kind load docker-image ouldmahammed/hello-world-node:latest --name kind
 
       - name: Déployer sur Kind
