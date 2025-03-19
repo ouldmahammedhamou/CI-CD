@@ -1,0 +1,12 @@
+{
+  "name": "hello-world-node",
+  "version": "1.0.0",
+  "description": "Application Node.js simple pour le TME CI/CD",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+} 
