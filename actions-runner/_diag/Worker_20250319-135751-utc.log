@@ -1,0 +1,3834 @@
+[2025-03-19 13:57:51Z INFO HostContext] No proxy settings were found based on environmental variables (http_proxy/https_proxy/HTTP_PROXY/HTTPS_PROXY)
+[2025-03-19 13:57:51Z INFO HostContext] Well known directory 'Bin': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\bin'
+[2025-03-19 13:57:51Z INFO HostContext] Well known directory 'Root': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner'
+[2025-03-19 13:57:51Z INFO HostContext] Well known config file 'Credentials': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\.credentials'
+[2025-03-19 13:57:52Z INFO HostContext] Well known directory 'Bin': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\bin'
+[2025-03-19 13:57:52Z INFO HostContext] Well known directory 'Root': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner'
+[2025-03-19 13:57:52Z INFO HostContext] Well known config file 'Runner': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\.runner'
+[2025-03-19 13:57:52Z INFO Worker] Version: 2.322.0
+[2025-03-19 13:57:52Z INFO Worker] Commit: 0edc478ca75d0a753dcbcec7405f3f26db67b1ac
+[2025-03-19 13:57:52Z INFO Worker] Culture: fr-FR
+[2025-03-19 13:57:52Z INFO Worker] UI Culture: fr-FR
+[2025-03-19 13:57:52Z INFO Worker] Waiting to receive the job message from the channel.
+[2025-03-19 13:57:52Z INFO ProcessChannel] Receiving message of length 22730, with hash '3c3029ab6ee3e2a08420f4931db570d7a1f6ff7bba2385f676f36d40f10aa5e3'
+[2025-03-19 13:57:52Z INFO Worker] Message received.
+[2025-03-19 13:57:52Z INFO Worker] Job message:
+ {
+  "fileTable": [
+    ".github/workflows/ci.yml"
+  ],
+  "mask": [
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    }
+  ],
+  "steps": [
+    {
+      "type": "action",
+      "reference": {
+        "type": "repository",
+        "name": "actions/checkout",
+        "ref": "v4",
+        "repositoryType": "GitHub"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 13,
+        "col": 15,
+        "lit": "Checkout du code source"
+      },
+      "contextName": "__actions_checkout",
+      "condition": "success()",
+      "id": "1a3446d7-f888-4403-94c0-d1c59ac3e792",
+      "name": "__actions_checkout"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 15,
+        "col": 15,
+        "lit": "Vérifier l'environnement"
+      },
+      "contextName": "__run",
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 16,
+              "col": 14,
+              "lit": "docker --version\ndocker ps\nkubectl version --client\n"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "continueOnError": {
+        "type": 5,
+        "file": 1,
+        "line": 20,
+        "col": 28,
+        "bool": true
+      },
+      "id": "063114b8-ca6f-4724-a207-756515c3b05f",
+      "name": "__run"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "repository",
+        "name": "helm/kind-action",
+        "ref": "v1.8.0",
+        "repositoryType": "GitHub"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 22,
+        "col": 15,
+        "lit": "Installation de Kind"
+      },
+      "contextName": "__helm_kind-action",
+      "inputs": {
+        "type": 2,
+        "file": 1,
+        "line": 25,
+        "col": 11,
+        "map": [
+          {
+            "key": {
+              "type": 0,
+              "file": 1,
+              "line": 25,
+              "col": 11,
+              "lit": "config"
+            },
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 25,
+              "col": 19,
+              "lit": "kind-config.yaml"
+            }
+          },
+          {
+            "key": {
+              "type": 0,
+              "file": 1,
+              "line": 26,
+              "col": 11,
+              "lit": "cluster_name"
+            },
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 26,
+              "col": 25,
+              "lit": "kind"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "bbf9b315-20c5-46c2-b0d8-7fd8b3ded66f",
+      "name": "__helm_kind-action"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 28,
+        "col": 15,
+        "lit": "Construire l'image Docker"
+      },
+      "contextName": "__run_2",
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 3,
+              "file": 1,
+              "line": 29,
+              "col": 14,
+              "expr": "format('echo \"Début de la construction de l''image...\"\ndocker build -t ouldmahammed/hello-world-node:{0} .\necho \"Image construite avec succès\"\n', github.sha)"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "6b4178f3-b30c-4290-83af-b8cccdad27a9",
+      "name": "__run_2"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 34,
+        "col": 15,
+        "lit": "Connexion à Docker Hub"
+      },
+      "contextName": "__run_3",
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 3,
+              "file": 1,
+              "line": 35,
+              "col": 14,
+              "expr": "format('echo \"Tentative de connexion à Docker Hub...\"\necho \"{0}\" | docker login -u ouldmahammed --password-stdin\n', secrets.DOCKER_PASSWORD)"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "continueOnError": {
+        "type": 5,
+        "file": 1,
+        "line": 38,
+        "col": 28,
+        "bool": false
+      },
+      "id": "e1cdcb1b-835e-460e-8628-174a8d68c7d9",
+      "name": "__run_3"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 40,
+        "col": 15,
+        "lit": "Pousser l'image Docker"
+      },
+      "contextName": "__run_4",
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 3,
+              "file": 1,
+              "line": 41,
+              "col": 14,
+              "expr": "format('echo \"Étiquetage de l''image...\"\ndocker tag ouldmahammed/hello-world-node:{0} ouldmahammed/hello-world-node:latest\necho \"Push de l''image...\"\ndocker push ouldmahammed/hello-world-node:latest\n', github.sha)"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "2f290a4b-b044-4aa4-a8fd-62f519118ed7",
+      "name": "__run_4"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 47,
+        "col": 15,
+        "lit": "Vérifier que le cluster est prêt"
+      },
+      "contextName": "__run_5",
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 48,
+              "col": 14,
+              "lit": "echo \"Vérification du cluster...\"\nkubectl cluster-info\nkubectl get nodes\n"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "462bf96e-e1d5-4cab-a078-37ac9090fde0",
+      "name": "__run_5"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 53,
+        "col": 15,
+        "lit": "Déployer sur Kind"
+      },
+      "contextName": "__run_6",
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 54,
+              "col": 14,
+              "lit": "echo \"Création du déploiement...\"\nkubectl create deployment hello-world-node --image=ouldmahammed/hello-world-node:latest || true\necho \"Exposition du service...\"\nkubectl expose deployment hello-world-node --type=NodePort --port=80 --target-port=3000 || true\necho \"Attente du déploiement...\"\nkubectl wait --for=condition=available --timeout=300s deployment/hello-world-node\n"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "c6abccb0-0f39-48bc-89d3-d62e885fe04b",
+      "name": "__run_6"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 62,
+        "col": 15,
+        "lit": "Vérifier le déploiement"
+      },
+      "contextName": "__run_7",
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 63,
+              "col": 14,
+              "lit": "echo \"État des pods :\"\nkubectl get pods -o wide\necho \"État des services :\"\nkubectl get services\n"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "16e3adff-28a5-4990-bc20-2fcc739bcd6a",
+      "name": "__run_7"
+    }
+  ],
+  "variables": {
+    "Actions.EnableHttpRedirects": {
+      "value": "true"
+    },
+    "DOCKER_PASSWORD": {
+      "value": "***",
+      "isSecret": true
+    },
+    "DistributedTask.AddWarningToNode12Action": {
+      "value": "true"
+    },
+    "DistributedTask.AddWarningToNode16Action": {
+      "value": "true"
+    },
+    "DistributedTask.AllowRunnerContainerHooks": {
+      "value": "true"
+    },
+    "DistributedTask.DeprecateStepOutputCommands": {
+      "value": "true"
+    },
+    "DistributedTask.DetailUntarFailure": {
+      "value": "true"
+    },
+    "DistributedTask.EnableCompositeActions": {
+      "value": "true"
+    },
+    "DistributedTask.EnableJobServerQueueTelemetry": {
+      "value": "true"
+    },
+    "DistributedTask.EnhancedAnnotations": {
+      "value": "true"
+    },
+    "DistributedTask.ForceGithubJavascriptActionsToNode16": {
+      "value": "true"
+    },
+    "DistributedTask.ForceGithubJavascriptActionsToNode20": {
+      "value": "true"
+    },
+    "DistributedTask.LogTemplateErrorsAsDebugMessages": {
+      "value": "true"
+    },
+    "DistributedTask.MarkJobAsFailedOnWorkerCrash": {
+      "value": "true"
+    },
+    "DistributedTask.NewActionMetadata": {
+      "value": "true"
+    },
+    "DistributedTask.UploadStepSummary": {
+      "value": "true"
+    },
+    "DistributedTask.UseActionArchiveCache": {
+      "value": "true"
+    },
+    "DistributedTask.UseWhich2": {
+      "value": "true"
+    },
+    "RunService.FixEmbeddedIssues": {
+      "value": "true"
+    },
+    "actions_skip_retry_complete_job_upon_known_errors": {
+      "value": "false"
+    },
+    "actions_uses_cache_service_v2": {
+      "value": "true"
+    },
+    "github_token": {
+      "value": "***",
+      "isSecret": true
+    },
+    "system.from_run_service": {
+      "value": "true"
+    },
+    "system.github.job": {
+      "value": "build-and-test"
+    },
+    "system.github.launch_endpoint": {
+      "value": "https://launch.actions.githubusercontent.com"
+    },
+    "system.github.results_endpoint": {
+      "value": "https://results-receiver.actions.githubusercontent.com/"
+    },
+    "system.github.results_upload_with_sdk": {
+      "value": "true"
+    },
+    "system.github.token": {
+      "value": "***",
+      "isSecret": true
+    },
+    "system.github.token.permissions": {
+      "value": "{\"Contents\":\"read\",\"Metadata\":\"read\",\"Packages\":\"read\"}"
+    },
+    "system.orchestrationId": {
+      "value": "1d1eaedf-3f1d-4452-8fda-39664160a16e.build-and-test.__default"
+    },
+    "system.phaseDisplayName": {
+      "value": "build-and-test"
+    },
+    "system.runner.lowdiskspacethreshold": {
+      "value": "100"
+    },
+    "system.runnerEnvironment": {
+      "value": "self-hosted"
+    }
+  },
+  "messageType": "RunnerJobRequest",
+  "plan": {
+    "scopeIdentifier": "00000000-0000-0000-0000-000000000000",
+    "planType": "actions",
+    "version": 0,
+    "planId": "1d1eaedf-3f1d-4452-8fda-39664160a16e",
+    "planGroup": null,
+    "artifactUri": null,
+    "artifactLocation": null,
+    "definition": null,
+    "owner": null
+  },
+  "timeline": {
+    "id": "1d1eaedf-3f1d-4452-8fda-39664160a16e",
+    "changeId": 0,
+    "location": null
+  },
+  "jobId": "c9fb19ee-c0b5-520c-bfe1-3b48c6154586",
+  "jobDisplayName": "build-and-test",
+  "jobName": "__default",
+  "requestId": 0,
+  "lockedUntil": "0001-01-01T00:00:00",
+  "resources": {
+    "endpoints": [
+      {
+        "data": {
+          "ServerId": "",
+          "ServerName": "",
+          "CacheServerUrl": "https://acghubeus1.actions.githubusercontent.com/PdtU51WDWCCnMKmn0hmHXDHtBftpRdZPRTCXdtzIticdsrzZPD/",
+          "FeedStreamUrl": "wss://results-receiver.actions.githubusercontent.com/_ws/ingest.sock",
+          "ResultsServiceUrl": "https://results-receiver.actions.githubusercontent.com/",
+          "PipelinesServiceUrl": "https://pipelinesghubeus9.actions.githubusercontent.com/PdtU51WDWCCnMKmn0hmHXDHtBftpRdZPRTCXdtzIticdsrzZPD/",
+          "GenerateIdTokenUrl": ""
+        },
+        "name": "SystemVssConnection",
+        "url": "https://run-actions-3-azure-eastus.actions.githubusercontent.com/5/",
+        "authorization": {
+          "parameters": {
+            "AccessToken": "***"
+          },
+          "scheme": "OAuth"
+        },
+        "isShared": false,
+        "isReady": true
+      }
+    ]
+  },
+  "contextData": {
+    "github": {
+      "t": 2,
+      "d": [
+        {
+          "k": "ref",
+          "v": "refs/heads/main"
+        },
+        {
+          "k": "sha",
+          "v": "2a964d295cd4e49e75a88e0d0ab5f30d0343ab22"
+        },
+        {
+          "k": "repository",
+          "v": "ouldmahammedhamou/CI-CD"
+        },
+        {
+          "k": "repository_owner",
+          "v": "ouldmahammedhamou"
+        },
+        {
+          "k": "repository_owner_id",
+          "v": "185472136"
+        },
+        {
+          "k": "repositoryUrl",
+          "v": "git://github.com/ouldmahammedhamou/CI-CD.git"
+        },
+        {
+          "k": "run_id",
+          "v": "13948199510"
+        },
+        {
+          "k": "run_number",
+          "v": "20"
+        },
+        {
+          "k": "retention_days",
+          "v": "90"
+        },
+        {
+          "k": "run_attempt",
+          "v": "1"
+        },
+        {
+          "k": "artifact_cache_size_limit",
+          "v": "10"
+        },
+        {
+          "k": "repository_visibility",
+          "v": "public"
+        },
+        {
+          "k": "actor_id",
+          "v": "185472136"
+        },
+        {
+          "k": "actor",
+          "v": "ouldmahammedhamou"
+        },
+        {
+          "k": "workflow",
+          "v": "CI Pipeline"
+        },
+        {
+          "k": "head_ref",
+          "v": ""
+        },
+        {
+          "k": "base_ref",
+          "v": ""
+        },
+        {
+          "k": "event_name",
+          "v": "push"
+        },
+        {
+          "k": "server_url",
+          "v": "https://github.com"
+        },
+        {
+          "k": "api_url",
+          "v": "https://api.github.com"
+        },
+        {
+          "k": "graphql_url",
+          "v": "https://api.github.com/graphql"
+        },
+        {
+          "k": "ref_name",
+          "v": "main"
+        },
+        {
+          "k": "ref_protected",
+          "v": false
+        },
+        {
+          "k": "ref_type",
+          "v": "branch"
+        },
+        {
+          "k": "secret_source",
+          "v": "Actions"
+        },
+        {
+          "k": "event",
+          "v": {
+            "t": 2,
+            "d": [
+              {
+                "k": "after",
+                "v": "2a964d295cd4e49e75a88e0d0ab5f30d0343ab22"
+              },
+              {
+                "k": "base_ref",
+                "v": null
+              },
+              {
+                "k": "before",
+                "v": "74f73322a98eaa04c7d3f3591cc5a789dc64d3ff"
+              },
+              {
+                "k": "commits",
+                "v": {
+                  "t": 1,
+                  "a": [
+                    {
+                      "t": 2,
+                      "d": [
+                        {
+                          "k": "author",
+                          "v": {
+                            "t": 2,
+                            "d": [
+                              {
+                                "k": "email",
+                                "v": "hamou.ouldmahammed@gmail.com"
+                              },
+                              {
+                                "k": "name",
+                                "v": "ouldmahammedhamou"
+                              },
+                              {
+                                "k": "username",
+                                "v": "ouldmahammedhamou"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "k": "committer",
+                          "v": {
+                            "t": 2,
+                            "d": [
+                              {
+                                "k": "email",
+                                "v": "hamou.ouldmahammed@gmail.com"
+                              },
+                              {
+                                "k": "name",
+                                "v": "ouldmahammedhamou"
+                              },
+                              {
+                                "k": "username",
+                                "v": "ouldmahammedhamou"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "k": "distinct",
+                          "v": true
+                        },
+                        {
+                          "k": "id",
+                          "v": "2a964d295cd4e49e75a88e0d0ab5f30d0343ab22"
+                        },
+                        {
+                          "k": "message",
+                          "v": "aaa"
+                        },
+                        {
+                          "k": "timestamp",
+                          "v": "2025-03-19T14:49:59+01:00"
+                        },
+                        {
+                          "k": "tree_id",
+                          "v": "aaa570396d4f2a74f5021af27d146e88333dbb11"
+                        },
+                        {
+                          "k": "url",
+                          "v": "https://github.com/ouldmahammedhamou/CI-CD/commit/2a964d295cd4e49e75a88e0d0ab5f30d0343ab22"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              {
+                "k": "compare",
+                "v": "https://github.com/ouldmahammedhamou/CI-CD/compare/74f73322a98e...2a964d295cd4"
+              },
+              {
+                "k": "created",
+                "v": false
+              },
+              {
+                "k": "deleted",
+                "v": false
+              },
+              {
+                "k": "forced",
+                "v": false
+              },
+              {
+                "k": "head_commit",
+                "v": {
+                  "t": 2,
+                  "d": [
+                    {
+                      "k": "author",
+                      "v": {
+                        "t": 2,
+                        "d": [
+                          {
+                            "k": "email",
+                            "v": "hamou.ouldmahammed@gmail.com"
+                          },
+                          {
+                            "k": "name",
+                            "v": "ouldmahammedhamou"
+                          },
+                          {
+                            "k": "username",
+                            "v": "ouldmahammedhamou"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "k": "committer",
+                      "v": {
+                        "t": 2,
+                        "d": [
+                          {
+                            "k": "email",
+                            "v": "hamou.ouldmahammed@gmail.com"
+                          },
+                          {
+                            "k": "name",
+                            "v": "ouldmahammedhamou"
+                          },
+                          {
+                            "k": "username",
+                            "v": "ouldmahammedhamou"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "k": "distinct",
+                      "v": true
+                    },
+                    {
+                      "k": "id",
+                      "v": "2a964d295cd4e49e75a88e0d0ab5f30d0343ab22"
+                    },
+                    {
+                      "k": "message",
+                      "v": "aaa"
+                    },
+                    {
+                      "k": "timestamp",
+                      "v": "2025-03-19T14:49:59+01:00"
+                    },
+                    {
+                      "k": "tree_id",
+                      "v": "aaa570396d4f2a74f5021af27d146e88333dbb11"
+                    },
+                    {
+                      "k": "url",
+                      "v": "https://github.com/ouldmahammedhamou/CI-CD/commit/2a964d295cd4e49e75a88e0d0ab5f30d0343ab22"
+                    }
+                  ]
+                }
+              },
+              {
+                "k": "pusher",
+                "v": {
+                  "t": 2,
+                  "d": [
+                    {
+                      "k": "email",
+                      "v": "hamou.ouldmahammed@gmail.com"
+                    },
+                    {
+                      "k": "name",
+                      "v": "ouldmahammedhamou"
+                    }
+                  ]
+                }
+              },
+              {
+                "k": "ref",
+                "v": "refs/heads/main"
+              },
+              {
+                "k": "repository",
+                "v": {
+                  "t": 2,
+                  "d": [
+                    {
+                      "k": "allow_forking",
+                      "v": true
+                    },
+                    {
+                      "k": "archive_url",
+                      "v": "https://api.github.com/repos/ouldmahammedhamou/CI-CD/{archive_format}{/ref}"
+                    },
+                    {
+                      "k": "archived",
+                      "v": false
+                    },
+                    {
+                      "k": "assignees_url",
+                      "v": "https://api.github.com/repos/ouldmahammedhamou/CI-CD/assignees{/user}"
+                    },
+                    {
+                      "k": "blobs_url",
+                      "v": "https://api.github.com/repos/ouldmahammedhamou/CI-CD/git/blobs{/sha}"
+                    },
+                    {
+                      "k": "branches_url",
+                      "v": "https://api.github.com/repos/ouldmahammedhamou/CI-CD/branches{/branch}"
+                    },
+                    {
+                      "k": "clone_url",
+                      "v": "https://github.com/ouldmahammedhamou/CI-CD.git"
+                    },
+                    {
+                      "k": "collaborators_url",
+                      "v": "https://api.github.com/repos/ouldmahammedhamou/CI-CD/collaborators{/collaborator}"
+                    },
+                    {
+                      "k": "comments_url",
+                      "v": "https://api.github.com/repos/ouldmahammedhamou/CI-CD/comments{/number}"
+                    },
+                    {
+                      "k": "commits_url",
+                      "v": "https://api.github.com/repos/ouldmahammedhamou/CI-CD/commits{/sha}"
+                    },
+                    {
+                      "k": "compare_url",
+                      "v": "https://api.github.com/repos/ouldmahammedhamou/CI-CD/compare/{base}...{head}"
+                    },
+                    {
+                      "k": "contents_url",
+                      "v": "https://api.github.com/repos/ouldmahammedhamou/CI-CD/contents/{+path}"
+                    },
+                    {
+                      "k": "contributors_url",
+                      "v": "https://api.github.com/repos/ouldmahammedhamou/CI-CD/contributors"
+                    },
+                    {
+                      "k": "created_at",
+                      "v": 1742372211.0
+                    },
+                    {
+                      "k": "default_branch",
+                      "v": "main"
+                    },
+                    {
+                      "k": "deployments_url",
+                      "v": "https://api.github.com/repos/ouldmahammedhamou/CI-CD/deployments"
+                    },
+                    {
+                      "k": "description",
+                      "v": null
+                    },
+                    {
+                      "k": "disabled",
+                      "v": false
+                    },
+                    {
+                      "k": "downloads_url",
+                      "v": "https://api.github.com/repos/ouldmahammedhamou/CI-CD/downloads"
+                    },
+                    {
+                      "k": "events_url",
+                      "v": "https://api.github.com/repos/ouldmahammedhamou/CI-CD/events"
+                    },
+                    {
+                      "k": "fork",
+                      "v": false
+                    },
+                    {
+                      "k": "forks",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "forks_count",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "forks_url",
+                      "v": "https://api.github.com/repos/ouldmahammedhamou/CI-CD/forks"
+                    },
+                    {
+                      "k": "full_name",
+                      "v": "ouldmahammedhamou/CI-CD"
+                    },
+                    {
+                      "k": "git_commits_url",
+                      "v": "https://api.github.com/repos/ouldmahammedhamou/CI-CD/git/commits{/sha}"
+                    },
+                    {
+                      "k": "git_refs_url",
+                      "v": "https://api.github.com/repos/ouldmahammedhamou/CI-CD/git/refs{/sha}"
+                    },
+                    {
+                      "k": "git_tags_url",
+                      "v": "https://api.github.com/repos/ouldmahammedhamou/CI-CD/git/tags{/sha}"
+                    },
+                    {
+                      "k": "git_url",
+                      "v": "git://github.com/ouldmahammedhamou/CI-CD.git"
+                    },
+                    {
+                      "k": "has_discussions",
+                      "v": false
+                    },
+                    {
+                      "k": "has_downloads",
+                      "v": true
+                    },
+                    {
+                      "k": "has_issues",
+                      "v": true
+                    },
+                    {
+                      "k": "has_pages",
+                      "v": false
+                    },
+                    {
+                      "k": "has_projects",
+                      "v": true
+                    },
+                    {
+                      "k": "has_wiki",
+                      "v": true
+                    },
+                    {
+                      "k": "homepage",
+                      "v": null
+                    },
+                    {
+                      "k": "hooks_url",
+                      "v": "https://api.github.com/repos/ouldmahammedhamou/CI-CD/hooks"
+                    },
+                    {
+                      "k": "html_url",
+                      "v": "https://github.com/ouldmahammedhamou/CI-CD"
+                    },
+                    {
+                      "k": "id",
+                      "v": 951140828.0
+                    },
+                    {
+                      "k": "is_template",
+                      "v": false
+                    },
+                    {
+                      "k": "issue_comment_url",
+                      "v": "https://api.github.com/repos/ouldmahammedhamou/CI-CD/issues/comments{/number}"
+                    },
+                    {
+                      "k": "issue_events_url",
+                      "v": "https://api.github.com/repos/ouldmahammedhamou/CI-CD/issues/events{/number}"
+                    },
+                    {
+                      "k": "issues_url",
+                      "v": "https://api.github.com/repos/ouldmahammedhamou/CI-CD/issues{/number}"
+                    },
+                    {
+                      "k": "keys_url",
+                      "v": "https://api.github.com/repos/ouldmahammedhamou/CI-CD/keys{/key_id}"
+                    },
+                    {
+                      "k": "labels_url",
+                      "v": "https://api.github.com/repos/ouldmahammedhamou/CI-CD/labels{/name}"
+                    },
+                    {
+                      "k": "language",
+                      "v": "JavaScript"
+                    },
+                    {
+                      "k": "languages_url",
+                      "v": "https://api.github.com/repos/ouldmahammedhamou/CI-CD/languages"
+                    },
+                    {
+                      "k": "license",
+                      "v": null
+                    },
+                    {
+                      "k": "master_branch",
+                      "v": "main"
+                    },
+                    {
+                      "k": "merges_url",
+                      "v": "https://api.github.com/repos/ouldmahammedhamou/CI-CD/merges"
+                    },
+                    {
+                      "k": "milestones_url",
+                      "v": "https://api.github.com/repos/ouldmahammedhamou/CI-CD/milestones{/number}"
+                    },
+                    {
+                      "k": "mirror_url",
+                      "v": null
+                    },
+                    {
+                      "k": "name",
+                      "v": "CI-CD"
+                    },
+                    {
+                      "k": "node_id",
+                      "v": "R_kgDOOLFB3A"
+                    },
+                    {
+                      "k": "notifications_url",
+                      "v": "https://api.github.com/repos/ouldmahammedhamou/CI-CD/notifications{?since,all,participating}"
+                    },
+                    {
+                      "k": "open_issues",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "open_issues_count",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "owner",
+                      "v": {
+                        "t": 2,
+                        "d": [
+                          {
+                            "k": "avatar_url",
+                            "v": "https://avatars.githubusercontent.com/u/185472136?v=4"
+                          },
+                          {
+                            "k": "email",
+                            "v": "hamou.ouldmahammed@gmail.com"
+                          },
+                          {
+                            "k": "events_url",
+                            "v": "https://api.github.com/users/ouldmahammedhamou/events{/privacy}"
+                          },
+                          {
+                            "k": "followers_url",
+                            "v": "https://api.github.com/users/ouldmahammedhamou/followers"
+                          },
+                          {
+                            "k": "following_url",
+                            "v": "https://api.github.com/users/ouldmahammedhamou/following{/other_user}"
+                          },
+                          {
+                            "k": "gists_url",
+                            "v": "https://api.github.com/users/ouldmahammedhamou/gists{/gist_id}"
+                          },
+                          {
+                            "k": "gravatar_id",
+                            "v": ""
+                          },
+                          {
+                            "k": "html_url",
+                            "v": "https://github.com/ouldmahammedhamou"
+                          },
+                          {
+                            "k": "id",
+                            "v": 185472136.0
+                          },
+                          {
+                            "k": "login",
+                            "v": "ouldmahammedhamou"
+                          },
+                          {
+                            "k": "name",
+                            "v": "ouldmahammedhamou"
+                          },
+                          {
+                            "k": "node_id",
+                            "v": "U_kgDOCw4UiA"
+                          },
+                          {
+                            "k": "organizations_url",
+                            "v": "https://api.github.com/users/ouldmahammedhamou/orgs"
+                          },
+                          {
+                            "k": "received_events_url",
+                            "v": "https://api.github.com/users/ouldmahammedhamou/received_events"
+                          },
+                          {
+                            "k": "repos_url",
+                            "v": "https://api.github.com/users/ouldmahammedhamou/repos"
+                          },
+                          {
+                            "k": "site_admin",
+                            "v": false
+                          },
+                          {
+                            "k": "starred_url",
+                            "v": "https://api.github.com/users/ouldmahammedhamou/starred{/owner}{/repo}"
+                          },
+                          {
+                            "k": "subscriptions_url",
+                            "v": "https://api.github.com/users/ouldmahammedhamou/subscriptions"
+                          },
+                          {
+                            "k": "type",
+                            "v": "User"
+                          },
+                          {
+                            "k": "url",
+                            "v": "https://api.github.com/users/ouldmahammedhamou"
+                          },
+                          {
+                            "k": "user_view_type",
+                            "v": "public"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "k": "private",
+                      "v": false
+                    },
+                    {
+                      "k": "pulls_url",
+                      "v": "https://api.github.com/repos/ouldmahammedhamou/CI-CD/pulls{/number}"
+                    },
+                    {
+                      "k": "pushed_at",
+                      "v": 1742392208.0
+                    },
+                    {
+                      "k": "releases_url",
+                      "v": "https://api.github.com/repos/ouldmahammedhamou/CI-CD/releases{/id}"
+                    },
+                    {
+                      "k": "size",
+                      "v": 12.0
+                    },
+                    {
+                      "k": "ssh_url",
+                      "v": "git@github.com:ouldmahammedhamou/CI-CD.git"
+                    },
+                    {
+                      "k": "stargazers",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "stargazers_count",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "stargazers_url",
+                      "v": "https://api.github.com/repos/ouldmahammedhamou/CI-CD/stargazers"
+                    },
+                    {
+                      "k": "statuses_url",
+                      "v": "https://api.github.com/repos/ouldmahammedhamou/CI-CD/statuses/{sha}"
+                    },
+                    {
+                      "k": "subscribers_url",
+                      "v": "https://api.github.com/repos/ouldmahammedhamou/CI-CD/subscribers"
+                    },
+                    {
+                      "k": "subscription_url",
+                      "v": "https://api.github.com/repos/ouldmahammedhamou/CI-CD/subscription"
+                    },
+                    {
+                      "k": "svn_url",
+                      "v": "https://github.com/ouldmahammedhamou/CI-CD"
+                    },
+                    {
+                      "k": "tags_url",
+                      "v": "https://api.github.com/repos/ouldmahammedhamou/CI-CD/tags"
+                    },
+                    {
+                      "k": "teams_url",
+                      "v": "https://api.github.com/repos/ouldmahammedhamou/CI-CD/teams"
+                    },
+                    {
+                      "k": "topics",
+                      "v": {
+                        "t": 1
+                      }
+                    },
+                    {
+                      "k": "trees_url",
+                      "v": "https://api.github.com/repos/ouldmahammedhamou/CI-CD/git/trees{/sha}"
+                    },
+                    {
+                      "k": "updated_at",
+                      "v": "2025-03-19T13:39:54Z"
+                    },
+                    {
+                      "k": "url",
+                      "v": "https://github.com/ouldmahammedhamou/CI-CD"
+                    },
+                    {
+                      "k": "visibility",
+                      "v": "public"
+                    },
+                    {
+                      "k": "watchers",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "watchers_count",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "web_commit_signoff_required",
+                      "v": false
+                    }
+                  ]
+                }
+              },
+              {
+                "k": "sender",
+                "v": {
+                  "t": 2,
+                  "d": [
+                    {
+                      "k": "avatar_url",
+                      "v": "https://avatars.githubusercontent.com/u/185472136?v=4"
+                    },
+                    {
+                      "k": "events_url",
+                      "v": "https://api.github.com/users/ouldmahammedhamou/events{/privacy}"
+                    },
+                    {
+                      "k": "followers_url",
+                      "v": "https://api.github.com/users/ouldmahammedhamou/followers"
+                    },
+                    {
+                      "k": "following_url",
+                      "v": "https://api.github.com/users/ouldmahammedhamou/following{/other_user}"
+                    },
+                    {
+                      "k": "gists_url",
+                      "v": "https://api.github.com/users/ouldmahammedhamou/gists{/gist_id}"
+                    },
+                    {
+                      "k": "gravatar_id",
+                      "v": ""
+                    },
+                    {
+                      "k": "html_url",
+                      "v": "https://github.com/ouldmahammedhamou"
+                    },
+                    {
+                      "k": "id",
+                      "v": 185472136.0
+                    },
+                    {
+                      "k": "login",
+                      "v": "ouldmahammedhamou"
+                    },
+                    {
+                      "k": "node_id",
+                      "v": "U_kgDOCw4UiA"
+                    },
+                    {
+                      "k": "organizations_url",
+                      "v": "https://api.github.com/users/ouldmahammedhamou/orgs"
+                    },
+                    {
+                      "k": "received_events_url",
+                      "v": "https://api.github.com/users/ouldmahammedhamou/received_events"
+                    },
+                    {
+                      "k": "repos_url",
+                      "v": "https://api.github.com/users/ouldmahammedhamou/repos"
+                    },
+                    {
+                      "k": "site_admin",
+                      "v": false
+                    },
+                    {
+                      "k": "starred_url",
+                      "v": "https://api.github.com/users/ouldmahammedhamou/starred{/owner}{/repo}"
+                    },
+                    {
+                      "k": "subscriptions_url",
+                      "v": "https://api.github.com/users/ouldmahammedhamou/subscriptions"
+                    },
+                    {
+                      "k": "type",
+                      "v": "User"
+                    },
+                    {
+                      "k": "url",
+                      "v": "https://api.github.com/users/ouldmahammedhamou"
+                    },
+                    {
+                      "k": "user_view_type",
+                      "v": "public"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "k": "workflow_ref",
+          "v": "ouldmahammedhamou/CI-CD/.github/workflows/ci.yml@refs/heads/main"
+        },
+        {
+          "k": "workflow_sha",
+          "v": "2a964d295cd4e49e75a88e0d0ab5f30d0343ab22"
+        },
+        {
+          "k": "repository_id",
+          "v": "951140828"
+        },
+        {
+          "k": "triggering_actor",
+          "v": "ouldmahammedhamou"
+        }
+      ]
+    },
+    "inputs": {
+      "t": 2
+    },
+    "matrix": null,
+    "needs": {
+      "t": 2
+    },
+    "strategy": {
+      "t": 2,
+      "d": [
+        {
+          "k": "fail-fast",
+          "v": true
+        },
+        {
+          "k": "job-index",
+          "v": 0.0
+        },
+        {
+          "k": "job-total",
+          "v": 1.0
+        },
+        {
+          "k": "max-parallel",
+          "v": 1.0
+        }
+      ]
+    },
+    "vars": {
+      "t": 2
+    }
+  }
+}
+[2025-03-19 13:57:52Z INFO JobRunner] Job ID c9fb19ee-c0b5-520c-bfe1-3b48c6154586
+[2025-03-19 13:57:52Z INFO ConfigurationStore] currentAssemblyLocation: C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\bin\Runner.Worker.dll
+[2025-03-19 13:57:52Z INFO HostContext] Well known directory 'Bin': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\bin'
+[2025-03-19 13:57:52Z INFO ConfigurationStore] binPath: C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\bin
+[2025-03-19 13:57:52Z INFO HostContext] Well known directory 'Bin': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\bin'
+[2025-03-19 13:57:52Z INFO HostContext] Well known directory 'Root': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner'
+[2025-03-19 13:57:52Z INFO ConfigurationStore] RootFolder: C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner
+[2025-03-19 13:57:52Z INFO HostContext] Well known directory 'Bin': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\bin'
+[2025-03-19 13:57:52Z INFO HostContext] Well known directory 'Root': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner'
+[2025-03-19 13:57:52Z INFO HostContext] Well known config file 'Runner': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\.runner'
+[2025-03-19 13:57:52Z INFO ConfigurationStore] ConfigFilePath: C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\.runner
+[2025-03-19 13:57:52Z INFO HostContext] Well known directory 'Bin': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\bin'
+[2025-03-19 13:57:52Z INFO HostContext] Well known directory 'Root': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner'
+[2025-03-19 13:57:52Z INFO HostContext] Well known config file 'Credentials': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\.credentials'
+[2025-03-19 13:57:52Z INFO ConfigurationStore] CredFilePath: C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\.credentials
+[2025-03-19 13:57:52Z INFO HostContext] Well known directory 'Bin': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\bin'
+[2025-03-19 13:57:52Z INFO HostContext] Well known directory 'Root': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner'
+[2025-03-19 13:57:52Z INFO HostContext] Well known config file 'MigratedCredentials': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\.credentials_migrated'
+[2025-03-19 13:57:52Z INFO ConfigurationStore] MigratedCredFilePath: C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\.credentials_migrated
+[2025-03-19 13:57:52Z INFO HostContext] Well known directory 'Bin': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\bin'
+[2025-03-19 13:57:52Z INFO HostContext] Well known directory 'Root': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner'
+[2025-03-19 13:57:52Z INFO HostContext] Well known config file 'Service': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\.service'
+[2025-03-19 13:57:52Z INFO ConfigurationStore] ServiceConfigFilePath: C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\.service
+[2025-03-19 13:57:52Z INFO ConfigurationStore] Read setting file: 304 chars
+[2025-03-19 13:57:52Z INFO JobRunner] Initializing launch client
+[2025-03-19 13:57:52Z INFO JobServerQueue] Initializing results client
+[2025-03-19 13:57:52Z INFO ResultServer] Creating websocket client ...wss://results-receiver.actions.githubusercontent.com/_ws/ingest.sock
+[2025-03-19 13:57:52Z INFO ResultServer] Attempting to start websocket client with delay 00:00:00.
+[2025-03-19 13:57:52Z INFO JobServerQueue] Start process web console line queue.
+[2025-03-19 13:57:52Z INFO JobServerQueue] Start process file upload queue.
+[2025-03-19 13:57:52Z INFO JobServerQueue] Start results file upload queue.
+[2025-03-19 13:57:52Z INFO JobServerQueue] Starting results-based upload queue...
+[2025-03-19 13:57:52Z INFO JobServerQueue] Start process timeline update queue.
+[2025-03-19 13:57:52Z INFO ExecutionContext] Initialize GitHub context
+[2025-03-19 13:57:52Z INFO ExecutionContext] Initialize Env context
+[2025-03-19 13:57:52Z INFO HostContext] Well known directory 'Bin': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\bin'
+[2025-03-19 13:57:52Z INFO HostContext] Well known directory 'Root': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner'
+[2025-03-19 13:57:52Z INFO HostContext] Well known directory 'Diag': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_diag'
+[2025-03-19 13:57:52Z INFO HostContext] Well known directory 'Bin': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\bin'
+[2025-03-19 13:57:52Z INFO HostContext] Well known directory 'Root': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner'
+[2025-03-19 13:57:52Z INFO HostContext] Well known directory 'Diag': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_diag'
+[2025-03-19 13:57:52Z INFO JobRunner] Starting the job execution context.
+[2025-03-19 13:57:52Z INFO HostContext] Well known directory 'Bin': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\bin'
+[2025-03-19 13:57:52Z INFO HostContext] Well known directory 'Root': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner'
+[2025-03-19 13:57:52Z INFO HostContext] Well known directory 'Work': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_work'
+[2025-03-19 13:57:52Z INFO JobRunner] Validating directory permissions for: 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_work'
+[2025-03-19 13:57:52Z INFO HostContext] Well known directory 'Bin': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\bin'
+[2025-03-19 13:57:52Z INFO HostContext] Well known directory 'Root': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner'
+[2025-03-19 13:57:52Z INFO HostContext] Well known directory 'Work': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_work'
+[2025-03-19 13:57:52Z INFO HostContext] Well known directory 'Tools': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_work\_tool'
+[2025-03-19 13:57:52Z INFO HostContext] Well known directory 'Bin': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\bin'
+[2025-03-19 13:57:52Z INFO HostContext] Well known directory 'Root': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner'
+[2025-03-19 13:57:52Z INFO HostContext] Well known directory 'Work': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_work'
+[2025-03-19 13:57:52Z INFO HostContext] Well known directory 'Temp': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_work\_temp'
+[2025-03-19 13:57:52Z INFO JobRunner] Getting job extension.
+[2025-03-19 13:57:52Z INFO JobRunner] Initialize job. Getting all job steps.
+[2025-03-19 13:57:52Z INFO HostContext] Well known directory 'Bin': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\bin'
+[2025-03-19 13:57:52Z INFO HostContext] Well known directory 'Root': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner'
+[2025-03-19 13:57:52Z INFO HostContext] Well known directory 'Diag': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_diag'
+[2025-03-19 13:57:52Z INFO HostContext] Well known directory 'Bin': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\bin'
+[2025-03-19 13:57:52Z INFO HostContext] Well known directory 'Root': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner'
+[2025-03-19 13:57:52Z INFO HostContext] Well known directory 'Diag': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_diag'
+[2025-03-19 13:57:52Z INFO HostContext] Well known directory 'Bin': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\bin'
+[2025-03-19 13:57:52Z INFO HostContext] Well known directory 'Root': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner'
+[2025-03-19 13:57:52Z INFO HostContext] Well known config file 'Credentials': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\.credentials'
+[2025-03-19 13:57:52Z INFO HostContext] Well known directory 'Bin': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\bin'
+[2025-03-19 13:57:52Z INFO HostContext] Well known directory 'Root': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner'
+[2025-03-19 13:57:52Z INFO HostContext] Well known config file 'SetupInfo': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\.setup_info'
+[2025-03-19 13:57:52Z INFO HostContext] Well known directory 'Bin': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\bin'
+[2025-03-19 13:57:52Z INFO HostContext] Well known directory 'Root': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner'
+[2025-03-19 13:57:52Z INFO HostContext] Well known directory 'Work': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_work'
+[2025-03-19 13:57:52Z INFO PipelineDirectoryManager] Loading tracking config if exists: C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_work\_PipelineMapping\ouldmahammedhamou/CI-CD\PipelineFolder.json
+[2025-03-19 13:57:52Z INFO PipelineDirectoryManager] Updating job run properties.
+[2025-03-19 13:57:52Z INFO HostContext] Well known directory 'Bin': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\bin'
+[2025-03-19 13:57:52Z INFO HostContext] Well known directory 'Root': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner'
+[2025-03-19 13:57:52Z INFO HostContext] Well known directory 'Work': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_work'
+[2025-03-19 13:57:52Z INFO HostContext] Well known directory 'Bin': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\bin'
+[2025-03-19 13:57:52Z INFO HostContext] Well known directory 'Root': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner'
+[2025-03-19 13:57:52Z INFO HostContext] Well known directory 'Work': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_work'
+[2025-03-19 13:57:52Z INFO HostContext] Well known directory 'Bin': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\bin'
+[2025-03-19 13:57:52Z INFO HostContext] Well known directory 'Root': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner'
+[2025-03-19 13:57:52Z INFO HostContext] Well known directory 'Work': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_work'
+[2025-03-19 13:57:52Z INFO JobExtension] Downloading actions
+[2025-03-19 13:57:52Z INFO HostContext] Well known directory 'Bin': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\bin'
+[2025-03-19 13:57:52Z INFO HostContext] Well known directory 'Root': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner'
+[2025-03-19 13:57:52Z INFO HostContext] Well known directory 'Work': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_work'
+[2025-03-19 13:57:52Z INFO HostContext] Well known directory 'Actions': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_work\_actions'
+[2025-03-19 13:57:52Z INFO Worker] Listening for cancel message from the channel.
+[2025-03-19 13:57:52Z INFO Worker] Waiting for the job to complete or for a cancel message from the channel.
+[2025-03-19 13:57:52Z INFO ResultServer] Successfully started websocket client.
+[2025-03-19 13:57:52Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'bbfaa008-fd1e-4708-b823-137118c65cd0', success rate: 1/1.
+[2025-03-19 13:57:53Z INFO JobServerQueue] Job timeline record has been updated for the first time.
+[2025-03-19 13:57:53Z INFO HostContext] Well known directory 'Bin': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\bin'
+[2025-03-19 13:57:53Z INFO HostContext] Well known directory 'Root': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner'
+[2025-03-19 13:57:53Z INFO HostContext] Well known directory 'Work': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_work'
+[2025-03-19 13:57:53Z INFO HostContext] Well known directory 'Actions': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_work\_actions'
+[2025-03-19 13:57:53Z INFO HostContext] Well known directory 'Bin': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\bin'
+[2025-03-19 13:57:53Z INFO HostContext] Well known directory 'Root': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner'
+[2025-03-19 13:57:53Z INFO HostContext] Well known directory 'Work': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_work'
+[2025-03-19 13:57:53Z INFO HostContext] Well known directory 'Actions': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_work\_actions'
+[2025-03-19 13:57:53Z INFO ActionManager] Save archive 'https://api.github.com/repos/actions/checkout/zipball/11bd71901bbe5b1630ceea73d27597364c9af683' into C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_work\_actions\_temp_a288f2b3-84b3-4465-aacb-0642b5a81b47\26ffb64b-c85e-4dc8-af08-7148f93da415.zip.
+[2025-03-19 13:57:53Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'bbfaa008-fd1e-4708-b823-137118c65cd0', success rate: 1/1.
+[2025-03-19 13:57:54Z INFO ActionManager] Request URL: https://api.github.com/repos/actions/checkout/zipball/11bd71901bbe5b1630ceea73d27597364c9af683 X-GitHub-Request-Id: F064:B6059:6843F:75AA9:67DACD61 Http Status: OK
+[2025-03-19 13:57:54Z INFO ActionManager] Finished getting action repository.
+[2025-03-19 13:57:54Z INFO HostContext] Well known directory 'Bin': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\bin'
+[2025-03-19 13:57:54Z INFO HostContext] Well known directory 'Root': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner'
+[2025-03-19 13:57:54Z INFO HostContext] Well known directory 'Work': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_work'
+[2025-03-19 13:57:54Z INFO HostContext] Well known directory 'Actions': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_work\_actions'
+[2025-03-19 13:57:54Z INFO HostContext] Well known directory 'Bin': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\bin'
+[2025-03-19 13:57:54Z INFO HostContext] Well known directory 'Root': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner'
+[2025-03-19 13:57:54Z INFO HostContext] Well known directory 'Work': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_work'
+[2025-03-19 13:57:54Z INFO HostContext] Well known directory 'Actions': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_work\_actions'
+[2025-03-19 13:57:54Z INFO ActionManager] Save archive 'https://api.github.com/repos/helm/kind-action/zipball/dda0770415bac9fc20092cacbc54aa298604d140' into C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_work\_actions\_temp_97d3440a-39be-45ef-85c3-7d6662e1cfc6\a6ea1a99-86b7-4fd8-be79-7f65e876cd4e.zip.
+[2025-03-19 13:57:54Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'bbfaa008-fd1e-4708-b823-137118c65cd0', success rate: 1/1.
+[2025-03-19 13:57:55Z INFO ActionManager] Request URL: https://api.github.com/repos/helm/kind-action/zipball/dda0770415bac9fc20092cacbc54aa298604d140 X-GitHub-Request-Id: F066:2F957B:6A054:776FC:67DACD62 Http Status: OK
+[2025-03-19 13:57:55Z INFO ActionManager] Finished getting action repository.
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Bin': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\bin'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Root': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Work': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_work'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Actions': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_work\_actions'
+[2025-03-19 13:57:55Z INFO ActionManifestManager] Load schema file with definitions: [
+  "null",
+  "boolean",
+  "number",
+  "string",
+  "sequence",
+  "mapping",
+  "any",
+  "action-root",
+  "inputs",
+  "input",
+  "outputs",
+  "output-definition",
+  "runs",
+  "container-runs",
+  "container-runs-args",
+  "container-runs-env",
+  "node-runs",
+  "plugin-runs",
+  "composite-runs",
+  "composite-steps",
+  "composite-step",
+  "run-step",
+  "uses-step",
+  "container-runs-context",
+  "output-value",
+  "input-default-context",
+  "non-empty-string",
+  "string-steps-context",
+  "boolean-steps-context",
+  "step-env",
+  "step-if",
+  "step-with"
+]
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Bin': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\bin'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Root': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Work': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_work'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Actions': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_work\_actions'
+[2025-03-19 13:57:55Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Checkout",
+  "description": "Checkout a Git repository at a particular version",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 4,
+          "col": 3,
+          "lit": "repository"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 6,
+          "col": 14,
+          "expr": "github.repository"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 7,
+          "col": 3,
+          "lit": "ref"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 12,
+          "col": 3,
+          "lit": "token"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 24,
+          "col": 14,
+          "expr": "github.token"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 25,
+          "col": 3,
+          "lit": "ssh-key"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 37,
+          "col": 3,
+          "lit": "ssh-known-hosts"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 42,
+          "col": 3,
+          "lit": "ssh-strict"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 47,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 48,
+          "col": 3,
+          "lit": "ssh-user"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 51,
+          "col": 14,
+          "lit": "git"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 52,
+          "col": 3,
+          "lit": "persist-credentials"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 54,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 55,
+          "col": 3,
+          "lit": "path"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 57,
+          "col": 3,
+          "lit": "clean"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 59,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 60,
+          "col": 3,
+          "lit": "filter"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 64,
+          "col": 14,
+          "lit": ""
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 65,
+          "col": 3,
+          "lit": "sparse-checkout"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 69,
+          "col": 14,
+          "lit": ""
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 70,
+          "col": 3,
+          "lit": "sparse-checkout-cone-mode"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 73,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 74,
+          "col": 3,
+          "lit": "fetch-depth"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 76,
+          "col": 14,
+          "lit": "1"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 77,
+          "col": 3,
+          "lit": "fetch-tags"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 79,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 80,
+          "col": 3,
+          "lit": "show-progress"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 82,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 83,
+          "col": 3,
+          "lit": "lfs"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 85,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 86,
+          "col": 3,
+          "lit": "submodules"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 94,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 95,
+          "col": 3,
+          "lit": "set-safe-directory"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 97,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 98,
+          "col": 3,
+          "lit": "github-server-url"
+        },
+        "value": ""
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": "dist/index.js",
+    "nodeVersion": "node20",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2025-03-19 13:57:55Z INFO ActionManager] Action node.js file: dist/index.js, no more preparation.
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Bin': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\bin'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Root': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Work': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_work'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Actions': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_work\_actions'
+[2025-03-19 13:57:55Z INFO ActionManager] Load action that reference repository from 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_work\_actions\actions\checkout\v4'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Bin': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\bin'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Root': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Work': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_work'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Actions': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_work\_actions'
+[2025-03-19 13:57:55Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Checkout",
+  "description": "Checkout a Git repository at a particular version",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 4,
+          "col": 3,
+          "lit": "repository"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 6,
+          "col": 14,
+          "expr": "github.repository"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 7,
+          "col": 3,
+          "lit": "ref"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 12,
+          "col": 3,
+          "lit": "token"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 24,
+          "col": 14,
+          "expr": "github.token"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 25,
+          "col": 3,
+          "lit": "ssh-key"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 37,
+          "col": 3,
+          "lit": "ssh-known-hosts"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 42,
+          "col": 3,
+          "lit": "ssh-strict"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 47,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 48,
+          "col": 3,
+          "lit": "ssh-user"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 51,
+          "col": 14,
+          "lit": "git"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 52,
+          "col": 3,
+          "lit": "persist-credentials"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 54,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 55,
+          "col": 3,
+          "lit": "path"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 57,
+          "col": 3,
+          "lit": "clean"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 59,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 60,
+          "col": 3,
+          "lit": "filter"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 64,
+          "col": 14,
+          "lit": ""
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 65,
+          "col": 3,
+          "lit": "sparse-checkout"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 69,
+          "col": 14,
+          "lit": ""
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 70,
+          "col": 3,
+          "lit": "sparse-checkout-cone-mode"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 73,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 74,
+          "col": 3,
+          "lit": "fetch-depth"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 76,
+          "col": 14,
+          "lit": "1"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 77,
+          "col": 3,
+          "lit": "fetch-tags"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 79,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 80,
+          "col": 3,
+          "lit": "show-progress"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 82,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 83,
+          "col": 3,
+          "lit": "lfs"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 85,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 86,
+          "col": 3,
+          "lit": "submodules"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 94,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 95,
+          "col": 3,
+          "lit": "set-safe-directory"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 97,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 98,
+          "col": 3,
+          "lit": "github-server-url"
+        },
+        "value": ""
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": "dist/index.js",
+    "nodeVersion": "node20",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2025-03-19 13:57:55Z INFO ActionManager] Action pre node.js file: N/A.
+[2025-03-19 13:57:55Z INFO ActionManager] Action node.js file: dist/index.js.
+[2025-03-19 13:57:55Z INFO ActionManager] Action post node.js file: dist/index.js.
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Bin': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\bin'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Root': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Work': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_work'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Actions': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_work\_actions'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Bin': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\bin'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Root': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Work': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_work'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Actions': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_work\_actions'
+[2025-03-19 13:57:55Z INFO ActionManifestManager] Ignore action property author.
+[2025-03-19 13:57:55Z INFO ActionManifestManager] Ignore action property branding.
+[2025-03-19 13:57:55Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Kind Cluster",
+  "description": "Create a kind (Kubernetes IN Docker) cluster",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 8,
+          "col": 3,
+          "lit": "version"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 11,
+          "col": 14,
+          "lit": "v0.20.0"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 12,
+          "col": 3,
+          "lit": "config"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 15,
+          "col": 3,
+          "lit": "node_image"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 18,
+          "col": 3,
+          "lit": "cluster_name"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 21,
+          "col": 14,
+          "lit": "chart-testing"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 22,
+          "col": 3,
+          "lit": "wait"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 25,
+          "col": 14,
+          "lit": "60s"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 26,
+          "col": 3,
+          "lit": "verbosity"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 28,
+          "col": 14,
+          "lit": "0"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 30,
+          "col": 3,
+          "lit": "kubectl_version"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 33,
+          "col": 14,
+          "lit": "v1.26.4"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 34,
+          "col": 3,
+          "lit": "install_only"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 37,
+          "col": 3,
+          "lit": "ignore_failed_clean"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 39,
+          "col": 14,
+          "lit": "false"
+        }
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "main.js",
+    "pre": null,
+    "post": "cleanup.js",
+    "nodeVersion": "node16",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2025-03-19 13:57:55Z INFO ActionManager] Action node.js file: main.js, no more preparation.
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Bin': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\bin'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Root': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Work': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_work'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Actions': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_work\_actions'
+[2025-03-19 13:57:55Z INFO ActionManager] Load action that reference repository from 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_work\_actions\helm\kind-action\v1.8.0'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Bin': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\bin'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Root': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Work': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_work'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Actions': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_work\_actions'
+[2025-03-19 13:57:55Z INFO ActionManifestManager] Ignore action property author.
+[2025-03-19 13:57:55Z INFO ActionManifestManager] Ignore action property branding.
+[2025-03-19 13:57:55Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Kind Cluster",
+  "description": "Create a kind (Kubernetes IN Docker) cluster",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 8,
+          "col": 3,
+          "lit": "version"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 11,
+          "col": 14,
+          "lit": "v0.20.0"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 12,
+          "col": 3,
+          "lit": "config"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 15,
+          "col": 3,
+          "lit": "node_image"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 18,
+          "col": 3,
+          "lit": "cluster_name"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 21,
+          "col": 14,
+          "lit": "chart-testing"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 22,
+          "col": 3,
+          "lit": "wait"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 25,
+          "col": 14,
+          "lit": "60s"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 26,
+          "col": 3,
+          "lit": "verbosity"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 28,
+          "col": 14,
+          "lit": "0"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 30,
+          "col": 3,
+          "lit": "kubectl_version"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 33,
+          "col": 14,
+          "lit": "v1.26.4"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 34,
+          "col": 3,
+          "lit": "install_only"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 37,
+          "col": 3,
+          "lit": "ignore_failed_clean"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 39,
+          "col": 14,
+          "lit": "false"
+        }
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "main.js",
+    "pre": null,
+    "post": "cleanup.js",
+    "nodeVersion": "node16",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2025-03-19 13:57:55Z INFO ActionManager] Action pre node.js file: N/A.
+[2025-03-19 13:57:55Z INFO ActionManager] Action node.js file: main.js.
+[2025-03-19 13:57:55Z INFO ActionManager] Action post node.js file: cleanup.js.
+[2025-03-19 13:57:55Z INFO JobExtension] Adding .
+[2025-03-19 13:57:55Z INFO JobExtension] Adding .
+[2025-03-19 13:57:55Z INFO JobExtension] Adding .
+[2025-03-19 13:57:55Z INFO JobExtension] Adding .
+[2025-03-19 13:57:55Z INFO JobExtension] Adding .
+[2025-03-19 13:57:55Z INFO JobExtension] Adding .
+[2025-03-19 13:57:55Z INFO JobExtension] Adding .
+[2025-03-19 13:57:55Z INFO JobExtension] Adding .
+[2025-03-19 13:57:55Z INFO JobExtension] Adding .
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Bin': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\bin'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Root': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Diag': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_diag'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Bin': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\bin'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Root': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Diag': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_diag'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Bin': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\bin'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Root': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Diag': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_diag'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Bin': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\bin'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Root': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Diag': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_diag'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Bin': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\bin'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Root': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Diag': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_diag'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Bin': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\bin'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Root': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Diag': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_diag'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Bin': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\bin'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Root': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Diag': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_diag'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Bin': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\bin'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Root': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Diag': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_diag'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Bin': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\bin'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Root': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Diag': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_diag'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Bin': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\bin'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Root': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Diag': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_diag'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Bin': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\bin'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Root': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Diag': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_diag'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Bin': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\bin'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Root': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Diag': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_diag'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Bin': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\bin'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Root': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Diag': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_diag'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Bin': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\bin'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Root': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Diag': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_diag'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Bin': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\bin'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Root': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Diag': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_diag'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Bin': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\bin'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Root': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Diag': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_diag'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Bin': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\bin'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Root': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Diag': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_diag'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Bin': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\bin'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Root': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Diag': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_diag'
+[2025-03-19 13:57:55Z INFO JobExtension] Total accessible running process: 382.
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Bin': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\bin'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Root': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Work': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_work'
+[2025-03-19 13:57:55Z INFO JobExtension] Start checking service connectivity in background.
+[2025-03-19 13:57:55Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "setup_job",
+  "type": "runner",
+  "stage": "Pre",
+  "stepId": "bbfaa008-fd1e-4708-b823-137118c65cd0",
+  "result": "succeeded",
+  "errorMessages": [],
+  "executionTimeInSeconds": 4,
+  "startTime": "2025-03-19T13:57:52.4886184Z",
+  "finishTime": "2025-03-19T13:57:55.6573885Z"
+}.
+[2025-03-19 13:57:55Z INFO JobRunner] Total job steps: 9.
+[2025-03-19 13:57:55Z INFO JobRunner] Run all job steps.
+[2025-03-19 13:57:55Z INFO StepsRunner] Processing step: DisplayName='Checkout du code source'
+[2025-03-19 13:57:55Z INFO StepsRunner] Evaluating: success()
+[2025-03-19 13:57:55Z INFO StepsRunner] Result: true
+[2025-03-19 13:57:55Z INFO StepsRunner] Starting the step.
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Bin': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\bin'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Root': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Work': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_work'
+[2025-03-19 13:57:55Z INFO StepsRunner] Which2: 'chcp'
+[2025-03-19 13:57:55Z INFO StepsRunner] Location: 'C:\windows\system32\chcp.COM'
+[2025-03-19 13:57:55Z INFO ProcessInvokerWrapper] Starting process:
+[2025-03-19 13:57:55Z INFO ProcessInvokerWrapper]   File name: 'C:\windows\system32\chcp.COM'
+[2025-03-19 13:57:55Z INFO ProcessInvokerWrapper]   Arguments: '65001'
+[2025-03-19 13:57:55Z INFO ProcessInvokerWrapper]   Working directory: 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_work'
+[2025-03-19 13:57:55Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2025-03-19 13:57:55Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2025-03-19 13:57:55Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2025-03-19 13:57:55Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2025-03-19 13:57:55Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2025-03-19 13:57:55Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2025-03-19 13:57:55Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2025-03-19 13:57:55Z INFO ProcessInvokerWrapper] Process started with process id 49500, waiting for process exit.
+[2025-03-19 13:57:55Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-03-19 13:57:55Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-03-19 13:57:55Z INFO ProcessInvokerWrapper] Finished process 49500 with exit code 0, and elapsed time 00:00:00.0269198.
+[2025-03-19 13:57:55Z INFO StepsRunner] Successfully returned to code page 65001 (UTF8)
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Bin': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\bin'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Root': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Work': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_work'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Actions': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_work\_actions'
+[2025-03-19 13:57:55Z INFO ActionManager] Load action that reference repository from 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_work\_actions\actions\checkout\v4'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Bin': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\bin'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Root': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Work': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_work'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Actions': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_work\_actions'
+[2025-03-19 13:57:55Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Checkout",
+  "description": "Checkout a Git repository at a particular version",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 4,
+          "col": 3,
+          "lit": "repository"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 6,
+          "col": 14,
+          "expr": "github.repository"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 7,
+          "col": 3,
+          "lit": "ref"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 12,
+          "col": 3,
+          "lit": "token"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 24,
+          "col": 14,
+          "expr": "github.token"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 25,
+          "col": 3,
+          "lit": "ssh-key"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 37,
+          "col": 3,
+          "lit": "ssh-known-hosts"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 42,
+          "col": 3,
+          "lit": "ssh-strict"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 47,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 48,
+          "col": 3,
+          "lit": "ssh-user"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 51,
+          "col": 14,
+          "lit": "git"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 52,
+          "col": 3,
+          "lit": "persist-credentials"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 54,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 55,
+          "col": 3,
+          "lit": "path"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 57,
+          "col": 3,
+          "lit": "clean"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 59,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 60,
+          "col": 3,
+          "lit": "filter"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 64,
+          "col": 14,
+          "lit": ""
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 65,
+          "col": 3,
+          "lit": "sparse-checkout"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 69,
+          "col": 14,
+          "lit": ""
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 70,
+          "col": 3,
+          "lit": "sparse-checkout-cone-mode"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 73,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 74,
+          "col": 3,
+          "lit": "fetch-depth"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 76,
+          "col": 14,
+          "lit": "1"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 77,
+          "col": 3,
+          "lit": "fetch-tags"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 79,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 80,
+          "col": 3,
+          "lit": "show-progress"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 82,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 83,
+          "col": 3,
+          "lit": "lfs"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 85,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 86,
+          "col": 3,
+          "lit": "submodules"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 94,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 95,
+          "col": 3,
+          "lit": "set-safe-directory"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 97,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 98,
+          "col": 3,
+          "lit": "github-server-url"
+        },
+        "value": ""
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": "dist/index.js",
+    "nodeVersion": "node20",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2025-03-19 13:57:55Z INFO ActionManager] Action pre node.js file: N/A.
+[2025-03-19 13:57:55Z INFO ActionManager] Action node.js file: dist/index.js.
+[2025-03-19 13:57:55Z INFO ActionManager] Action post node.js file: dist/index.js.
+[2025-03-19 13:57:55Z INFO ExecutionContext] Reserve record order 11 to 20 for post job actions.
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Bin': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\bin'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Root': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner'
+[2025-03-19 13:57:55Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'bbfaa008-fd1e-4708-b823-137118c65cd0', success rate: 1/1.
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Diag': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_diag'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Bin': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\bin'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Root': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Diag': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_diag'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Bin': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\bin'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Root': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Work': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_work'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Temp': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_work\_temp'
+[2025-03-19 13:57:55Z INFO ExecutionContext] Write event payload to C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_work\_temp\_github_workflow\event.json
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Bin': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\bin'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Root': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Work': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_work'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Temp': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_work\_temp'
+[2025-03-19 13:57:55Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IFileCommandExtension'
+[2025-03-19 13:57:55Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.AddPathFileCommand, Runner.Worker
+[2025-03-19 13:57:55Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SetEnvFileCommand, Runner.Worker
+[2025-03-19 13:57:55Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.CreateStepSummaryCommand, Runner.Worker
+[2025-03-19 13:57:55Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SaveStateFileCommand, Runner.Worker
+[2025-03-19 13:57:55Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SetOutputFileCommand, Runner.Worker
+[2025-03-19 13:57:55Z INFO ActionManifestManager] Input 'repository': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 6,
+  "col": 14,
+  "lit": "ouldmahammedhamou/CI-CD"
+}
+[2025-03-19 13:57:55Z INFO ActionManifestManager] Input 'ref': default value evaluate result: ""
+[2025-03-19 13:57:55Z INFO ActionManifestManager] Input 'token': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 24,
+  "col": 14,
+  "lit": "***"
+}
+[2025-03-19 13:57:55Z INFO ActionManifestManager] Input 'ssh-key': default value evaluate result: ""
+[2025-03-19 13:57:55Z INFO ActionManifestManager] Input 'ssh-known-hosts': default value evaluate result: ""
+[2025-03-19 13:57:55Z INFO ActionManifestManager] Input 'ssh-strict': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 47,
+  "col": 14,
+  "lit": "true"
+}
+[2025-03-19 13:57:55Z INFO ActionManifestManager] Input 'ssh-user': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 51,
+  "col": 14,
+  "lit": "git"
+}
+[2025-03-19 13:57:55Z INFO ActionManifestManager] Input 'persist-credentials': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 54,
+  "col": 14,
+  "lit": "true"
+}
+[2025-03-19 13:57:55Z INFO ActionManifestManager] Input 'path': default value evaluate result: ""
+[2025-03-19 13:57:55Z INFO ActionManifestManager] Input 'clean': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 59,
+  "col": 14,
+  "lit": "true"
+}
+[2025-03-19 13:57:55Z INFO ActionManifestManager] Input 'filter': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 64,
+  "col": 14,
+  "lit": ""
+}
+[2025-03-19 13:57:55Z INFO ActionManifestManager] Input 'sparse-checkout': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 69,
+  "col": 14,
+  "lit": ""
+}
+[2025-03-19 13:57:55Z INFO ActionManifestManager] Input 'sparse-checkout-cone-mode': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 73,
+  "col": 14,
+  "lit": "true"
+}
+[2025-03-19 13:57:55Z INFO ActionManifestManager] Input 'fetch-depth': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 76,
+  "col": 14,
+  "lit": "1"
+}
+[2025-03-19 13:57:55Z INFO ActionManifestManager] Input 'fetch-tags': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 79,
+  "col": 14,
+  "lit": "false"
+}
+[2025-03-19 13:57:55Z INFO ActionManifestManager] Input 'show-progress': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 82,
+  "col": 14,
+  "lit": "true"
+}
+[2025-03-19 13:57:55Z INFO ActionManifestManager] Input 'lfs': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 85,
+  "col": 14,
+  "lit": "false"
+}
+[2025-03-19 13:57:55Z INFO ActionManifestManager] Input 'submodules': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 94,
+  "col": 14,
+  "lit": "false"
+}
+[2025-03-19 13:57:55Z INFO ActionManifestManager] Input 'set-safe-directory': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 97,
+  "col": 14,
+  "lit": "true"
+}
+[2025-03-19 13:57:55Z INFO ActionManifestManager] Input 'github-server-url': default value evaluate result: ""
+[2025-03-19 13:57:55Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IActionCommandExtension'
+[2025-03-19 13:57:55Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.InternalPluginSetRepoPathCommandExtension, Runner.Worker
+[2025-03-19 13:57:55Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SetEnvCommandExtension, Runner.Worker
+[2025-03-19 13:57:55Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SetOutputCommandExtension, Runner.Worker
+[2025-03-19 13:57:55Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SaveStateCommandExtension, Runner.Worker
+[2025-03-19 13:57:55Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.AddPathCommandExtension, Runner.Worker
+[2025-03-19 13:57:55Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.AddMaskCommandExtension, Runner.Worker
+[2025-03-19 13:57:55Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.AddMatcherCommandExtension, Runner.Worker
+[2025-03-19 13:57:55Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.RemoveMatcherCommandExtension, Runner.Worker
+[2025-03-19 13:57:55Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.WarningCommandExtension, Runner.Worker
+[2025-03-19 13:57:55Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.ErrorCommandExtension, Runner.Worker
+[2025-03-19 13:57:55Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.NoticeCommandExtension, Runner.Worker
+[2025-03-19 13:57:55Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.DebugCommandExtension, Runner.Worker
+[2025-03-19 13:57:55Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.GroupCommandExtension, Runner.Worker
+[2025-03-19 13:57:55Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.EndGroupCommandExtension, Runner.Worker
+[2025-03-19 13:57:55Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.EchoCommandExtension, Runner.Worker
+[2025-03-19 13:57:55Z INFO ActionCommandManager] Register action command extension for command internal-set-repo-path
+[2025-03-19 13:57:55Z INFO ActionCommandManager] Register action command extension for command set-env
+[2025-03-19 13:57:55Z INFO ActionCommandManager] Register action command extension for command set-output
+[2025-03-19 13:57:55Z INFO ActionCommandManager] Register action command extension for command save-state
+[2025-03-19 13:57:55Z INFO ActionCommandManager] Register action command extension for command add-path
+[2025-03-19 13:57:55Z INFO ActionCommandManager] Register action command extension for command add-mask
+[2025-03-19 13:57:55Z INFO ActionCommandManager] Register action command extension for command add-matcher
+[2025-03-19 13:57:55Z INFO ActionCommandManager] Register action command extension for command remove-matcher
+[2025-03-19 13:57:55Z INFO ActionCommandManager] Register action command extension for command warning
+[2025-03-19 13:57:55Z INFO ActionCommandManager] Register action command extension for command error
+[2025-03-19 13:57:55Z INFO ActionCommandManager] Register action command extension for command notice
+[2025-03-19 13:57:55Z INFO ActionCommandManager] Register action command extension for command debug
+[2025-03-19 13:57:55Z INFO ActionCommandManager] Register action command extension for command group
+[2025-03-19 13:57:55Z INFO ActionCommandManager] Register action command extension for command endgroup
+[2025-03-19 13:57:55Z INFO ActionCommandManager] Register action command extension for command echo
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Bin': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\bin'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Root': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner'
+[2025-03-19 13:57:55Z INFO HostContext] Well known directory 'Externals': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\externals'
+[2025-03-19 13:57:55Z INFO ProcessInvokerWrapper] Starting process:
+[2025-03-19 13:57:55Z INFO ProcessInvokerWrapper]   File name: 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\externals\node20\bin\node.exe'
+[2025-03-19 13:57:55Z INFO ProcessInvokerWrapper]   Arguments: '"C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_work\_actions\actions\checkout\v4\dist/index.js"'
+[2025-03-19 13:57:55Z INFO ProcessInvokerWrapper]   Working directory: 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_work\CI-CD\CI-CD'
+[2025-03-19 13:57:55Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2025-03-19 13:57:55Z INFO ProcessInvokerWrapper]   Encoding web name: utf-8 ; code page: '65001'
+[2025-03-19 13:57:55Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2025-03-19 13:57:55Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2025-03-19 13:57:55Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2025-03-19 13:57:55Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2025-03-19 13:57:55Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2025-03-19 13:57:55Z INFO ProcessInvokerWrapper] Process started with process id 92928, waiting for process exit.
+[2025-03-19 13:57:56Z INFO JobServerQueue] Try to append 1 batches web console lines for record '1a3446d7-f888-4403-94c0-d1c59ac3e792', success rate: 1/1.
+[2025-03-19 13:57:56Z INFO AddMaskCommandExtension] Add new secret mask with length of 76
+[2025-03-19 13:57:56Z INFO JobServerQueue] Got a step log file to send to results service.
+[2025-03-19 13:57:56Z INFO JobServerQueue] Starting upload of step log file to results service ResultsLog, C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_diag\blocks\1d1eaedf-3f1d-4452-8fda-39664160a16e_bbfaa008-fd1e-4708-b823-137118c65cd0.1
+[2025-03-19 13:57:56Z INFO JobServerQueue] Try to upload 1 log files or attachments, success rate: 1/1.
+[2025-03-19 13:57:56Z INFO JobServerQueue] Try to append 1 batches web console lines for record '1a3446d7-f888-4403-94c0-d1c59ac3e792', success rate: 1/1.
+[2025-03-19 13:57:56Z INFO JobServerQueue] Try to append 1 batches web console lines for record '1a3446d7-f888-4403-94c0-d1c59ac3e792', success rate: 1/1.
+[2025-03-19 13:57:57Z INFO JobServerQueue] Try to append 1 batches web console lines for record '1a3446d7-f888-4403-94c0-d1c59ac3e792', success rate: 1/1.
+[2025-03-19 13:57:57Z INFO JobServerQueue] Tried to upload 1 file(s) to results, success rate: 1/1.
+[2025-03-19 13:57:58Z INFO JobServerQueue] Try to append 1 batches web console lines for record '1a3446d7-f888-4403-94c0-d1c59ac3e792', success rate: 1/1.
+[2025-03-19 13:57:58Z INFO JobServerQueue] Try to append 1 batches web console lines for record '1a3446d7-f888-4403-94c0-d1c59ac3e792', success rate: 1/1.
+[2025-03-19 13:58:05Z INFO HostContext] Well known directory 'Bin': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\bin'
+[2025-03-19 13:58:05Z INFO HostContext] Well known directory 'Root': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner'
+[2025-03-19 13:58:05Z INFO HostContext] Well known directory 'Work': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_work'
+[2025-03-19 13:58:07Z INFO JobServerQueue] Try to append 1 batches web console lines for record '1a3446d7-f888-4403-94c0-d1c59ac3e792', success rate: 1/1.
+[2025-03-19 13:58:15Z INFO HostContext] Well known directory 'Bin': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\bin'
+[2025-03-19 13:58:15Z INFO HostContext] Well known directory 'Root': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner'
+[2025-03-19 13:58:15Z INFO HostContext] Well known directory 'Work': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_work'
+[2025-03-19 13:58:25Z INFO HostContext] Well known directory 'Bin': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\bin'
+[2025-03-19 13:58:25Z INFO HostContext] Well known directory 'Root': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner'
+[2025-03-19 13:58:25Z INFO HostContext] Well known directory 'Work': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_work'
+[2025-03-19 13:58:35Z INFO HostContext] Well known directory 'Bin': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\bin'
+[2025-03-19 13:58:35Z INFO HostContext] Well known directory 'Root': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner'
+[2025-03-19 13:58:35Z INFO HostContext] Well known directory 'Work': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_work'
+[2025-03-19 13:58:45Z INFO HostContext] Well known directory 'Bin': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\bin'
+[2025-03-19 13:58:45Z INFO HostContext] Well known directory 'Root': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner'
+[2025-03-19 13:58:45Z INFO HostContext] Well known directory 'Work': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_work'
+[2025-03-19 13:58:51Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-03-19 13:58:51Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-03-19 13:58:51Z INFO ProcessInvokerWrapper] Finished process 92928 with exit code 1, and elapsed time 00:00:55.6786160.
+[2025-03-19 13:58:51Z INFO CreateStepSummaryCommand] Step Summary file (C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_work\_temp\_runner_file_commands\step_summary_2c77e48a-c6af-4502-82e0-d30ea1e4f27d) is empty; skipping attachment upload
+[2025-03-19 13:58:51Z INFO StepsRunner] Step result: Failed
+[2025-03-19 13:58:51Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "actions/checkout",
+  "ref": "v4",
+  "type": "node20",
+  "stage": "Main",
+  "stepId": "1a3446d7-f888-4403-94c0-d1c59ac3e792",
+  "stepContextName": "__actions_checkout",
+  "hasPreStep": false,
+  "hasPostStep": true,
+  "result": "failed",
+  "errorMessages": [
+    "no submodule mapping found in .gitmodules for path 'actions-runner/_work/CI-CD/CI-CD'",
+    "Unable to clean or reset the repository. The repository will be recreated instead.",
+    "File was unable to be removed Error: EPERM: operation not permitted, rmdir 'C:\\Users\\ouldr\\OneDrive\\Bureau\\rahimdocker\\CI-CD\\actions-runner\\_work\\CI-CD\\CI-CD\\.git\\hooks'"
+  ],
+  "executionTimeInSeconds": 56,
+  "startTime": "2025-03-19T13:57:55.684258Z",
+  "finishTime": "2025-03-19T13:58:51.5076212Z"
+}.
+[2025-03-19 13:58:51Z INFO StepsRunner] Update job result with current step result 'Failed'.
+[2025-03-19 13:58:51Z INFO StepsRunner] Current state: job state = 'Failed'
+[2025-03-19 13:58:51Z INFO StepsRunner] Processing step: DisplayName='Vérifier l'environnement'
+[2025-03-19 13:58:51Z INFO StepsRunner] Evaluating: success()
+[2025-03-19 13:58:51Z INFO StepsRunner] Result: false
+[2025-03-19 13:58:51Z INFO StepsRunner] Skipping step due to condition evaluation.
+[2025-03-19 13:58:51Z INFO StepsRunner] No need for updating job result with current step result 'Skipped'.
+[2025-03-19 13:58:51Z INFO StepsRunner] Current state: job state = 'Failed'
+[2025-03-19 13:58:51Z INFO StepsRunner] Processing step: DisplayName='Installation de Kind'
+[2025-03-19 13:58:51Z INFO StepsRunner] Evaluating: success()
+[2025-03-19 13:58:51Z INFO StepsRunner] Result: false
+[2025-03-19 13:58:51Z INFO StepsRunner] Skipping step due to condition evaluation.
+[2025-03-19 13:58:51Z INFO StepsRunner] No need for updating job result with current step result 'Skipped'.
+[2025-03-19 13:58:51Z INFO StepsRunner] Current state: job state = 'Failed'
+[2025-03-19 13:58:51Z INFO StepsRunner] Processing step: DisplayName='Construire l'image Docker'
+[2025-03-19 13:58:51Z INFO StepsRunner] Evaluating: success()
+[2025-03-19 13:58:51Z INFO StepsRunner] Result: false
+[2025-03-19 13:58:51Z INFO StepsRunner] Skipping step due to condition evaluation.
+[2025-03-19 13:58:51Z INFO StepsRunner] No need for updating job result with current step result 'Skipped'.
+[2025-03-19 13:58:51Z INFO StepsRunner] Current state: job state = 'Failed'
+[2025-03-19 13:58:51Z INFO StepsRunner] Processing step: DisplayName='Connexion à Docker Hub'
+[2025-03-19 13:58:51Z INFO StepsRunner] Evaluating: success()
+[2025-03-19 13:58:51Z INFO StepsRunner] Result: false
+[2025-03-19 13:58:51Z INFO StepsRunner] Skipping step due to condition evaluation.
+[2025-03-19 13:58:51Z INFO StepsRunner] No need for updating job result with current step result 'Skipped'.
+[2025-03-19 13:58:51Z INFO StepsRunner] Current state: job state = 'Failed'
+[2025-03-19 13:58:51Z INFO StepsRunner] Processing step: DisplayName='Pousser l'image Docker'
+[2025-03-19 13:58:51Z INFO StepsRunner] Evaluating: success()
+[2025-03-19 13:58:51Z INFO StepsRunner] Result: false
+[2025-03-19 13:58:51Z INFO StepsRunner] Skipping step due to condition evaluation.
+[2025-03-19 13:58:51Z INFO StepsRunner] No need for updating job result with current step result 'Skipped'.
+[2025-03-19 13:58:51Z INFO StepsRunner] Current state: job state = 'Failed'
+[2025-03-19 13:58:51Z INFO StepsRunner] Processing step: DisplayName='Vérifier que le cluster est prêt'
+[2025-03-19 13:58:51Z INFO StepsRunner] Evaluating: success()
+[2025-03-19 13:58:51Z INFO StepsRunner] Result: false
+[2025-03-19 13:58:51Z INFO StepsRunner] Skipping step due to condition evaluation.
+[2025-03-19 13:58:51Z INFO StepsRunner] No need for updating job result with current step result 'Skipped'.
+[2025-03-19 13:58:51Z INFO StepsRunner] Current state: job state = 'Failed'
+[2025-03-19 13:58:51Z INFO StepsRunner] Processing step: DisplayName='Déployer sur Kind'
+[2025-03-19 13:58:51Z INFO StepsRunner] Evaluating: success()
+[2025-03-19 13:58:51Z INFO StepsRunner] Result: false
+[2025-03-19 13:58:51Z INFO StepsRunner] Skipping step due to condition evaluation.
+[2025-03-19 13:58:51Z INFO StepsRunner] No need for updating job result with current step result 'Skipped'.
+[2025-03-19 13:58:51Z INFO StepsRunner] Current state: job state = 'Failed'
+[2025-03-19 13:58:51Z INFO StepsRunner] Processing step: DisplayName='Vérifier le déploiement'
+[2025-03-19 13:58:51Z INFO StepsRunner] Evaluating: success()
+[2025-03-19 13:58:51Z INFO StepsRunner] Result: false
+[2025-03-19 13:58:51Z INFO StepsRunner] Skipping step due to condition evaluation.
+[2025-03-19 13:58:51Z INFO StepsRunner] No need for updating job result with current step result 'Skipped'.
+[2025-03-19 13:58:51Z INFO StepsRunner] Current state: job state = 'Failed'
+[2025-03-19 13:58:51Z INFO StepsRunner] Processing step: DisplayName='Post Checkout du code source'
+[2025-03-19 13:58:51Z INFO StepsRunner] Evaluating: always()
+[2025-03-19 13:58:51Z INFO StepsRunner] Result: true
+[2025-03-19 13:58:51Z INFO StepsRunner] Starting the step.
+[2025-03-19 13:58:51Z INFO HostContext] Well known directory 'Bin': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\bin'
+[2025-03-19 13:58:51Z INFO HostContext] Well known directory 'Root': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner'
+[2025-03-19 13:58:51Z INFO HostContext] Well known directory 'Work': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_work'
+[2025-03-19 13:58:51Z INFO StepsRunner] Which2: 'chcp'
+[2025-03-19 13:58:51Z INFO StepsRunner] Location: 'C:\windows\system32\chcp.COM'
+[2025-03-19 13:58:51Z INFO ProcessInvokerWrapper] Starting process:
+[2025-03-19 13:58:51Z INFO ProcessInvokerWrapper]   File name: 'C:\windows\system32\chcp.COM'
+[2025-03-19 13:58:51Z INFO ProcessInvokerWrapper]   Arguments: '65001'
+[2025-03-19 13:58:51Z INFO ProcessInvokerWrapper]   Working directory: 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_work'
+[2025-03-19 13:58:51Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2025-03-19 13:58:51Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2025-03-19 13:58:51Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2025-03-19 13:58:51Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2025-03-19 13:58:51Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2025-03-19 13:58:51Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2025-03-19 13:58:51Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2025-03-19 13:58:51Z INFO ProcessInvokerWrapper] Process started with process id 13524, waiting for process exit.
+[2025-03-19 13:58:51Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-03-19 13:58:51Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-03-19 13:58:51Z INFO ProcessInvokerWrapper] Finished process 13524 with exit code 0, and elapsed time 00:00:00.0181815.
+[2025-03-19 13:58:51Z INFO StepsRunner] Successfully returned to code page 65001 (UTF8)
+[2025-03-19 13:58:51Z INFO HostContext] Well known directory 'Bin': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\bin'
+[2025-03-19 13:58:51Z INFO HostContext] Well known directory 'Root': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner'
+[2025-03-19 13:58:51Z INFO HostContext] Well known directory 'Work': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_work'
+[2025-03-19 13:58:51Z INFO HostContext] Well known directory 'Actions': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_work\_actions'
+[2025-03-19 13:58:51Z INFO ActionManager] Load action that reference repository from 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_work\_actions\actions\checkout\v4'
+[2025-03-19 13:58:51Z INFO HostContext] Well known directory 'Bin': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\bin'
+[2025-03-19 13:58:51Z INFO HostContext] Well known directory 'Root': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner'
+[2025-03-19 13:58:51Z INFO HostContext] Well known directory 'Work': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_work'
+[2025-03-19 13:58:51Z INFO HostContext] Well known directory 'Actions': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_work\_actions'
+[2025-03-19 13:58:51Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Checkout",
+  "description": "Checkout a Git repository at a particular version",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 4,
+          "col": 3,
+          "lit": "repository"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 6,
+          "col": 14,
+          "expr": "github.repository"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 7,
+          "col": 3,
+          "lit": "ref"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 12,
+          "col": 3,
+          "lit": "token"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 24,
+          "col": 14,
+          "expr": "github.token"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 25,
+          "col": 3,
+          "lit": "ssh-key"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 37,
+          "col": 3,
+          "lit": "ssh-known-hosts"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 42,
+          "col": 3,
+          "lit": "ssh-strict"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 47,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 48,
+          "col": 3,
+          "lit": "ssh-user"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 51,
+          "col": 14,
+          "lit": "git"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 52,
+          "col": 3,
+          "lit": "persist-credentials"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 54,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 55,
+          "col": 3,
+          "lit": "path"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 57,
+          "col": 3,
+          "lit": "clean"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 59,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 60,
+          "col": 3,
+          "lit": "filter"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 64,
+          "col": 14,
+          "lit": ""
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 65,
+          "col": 3,
+          "lit": "sparse-checkout"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 69,
+          "col": 14,
+          "lit": ""
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 70,
+          "col": 3,
+          "lit": "sparse-checkout-cone-mode"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 73,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 74,
+          "col": 3,
+          "lit": "fetch-depth"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 76,
+          "col": 14,
+          "lit": "1"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 77,
+          "col": 3,
+          "lit": "fetch-tags"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 79,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 80,
+          "col": 3,
+          "lit": "show-progress"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 82,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 83,
+          "col": 3,
+          "lit": "lfs"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 85,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 86,
+          "col": 3,
+          "lit": "submodules"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 94,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 95,
+          "col": 3,
+          "lit": "set-safe-directory"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 97,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 98,
+          "col": 3,
+          "lit": "github-server-url"
+        },
+        "value": ""
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": "dist/index.js",
+    "nodeVersion": "node20",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2025-03-19 13:58:51Z INFO ActionManager] Action pre node.js file: N/A.
+[2025-03-19 13:58:51Z INFO ActionManager] Action node.js file: dist/index.js.
+[2025-03-19 13:58:51Z INFO ActionManager] Action post node.js file: dist/index.js.
+[2025-03-19 13:58:51Z INFO HostContext] Well known directory 'Bin': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\bin'
+[2025-03-19 13:58:51Z INFO HostContext] Well known directory 'Root': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner'
+[2025-03-19 13:58:51Z INFO HostContext] Well known directory 'Work': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_work'
+[2025-03-19 13:58:51Z INFO HostContext] Well known directory 'Temp': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_work\_temp'
+[2025-03-19 13:58:51Z INFO ExecutionContext] Write event payload to C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_work\_temp\_github_workflow\event.json
+[2025-03-19 13:58:51Z INFO HostContext] Well known directory 'Bin': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\bin'
+[2025-03-19 13:58:51Z INFO HostContext] Well known directory 'Root': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner'
+[2025-03-19 13:58:51Z INFO HostContext] Well known directory 'Work': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_work'
+[2025-03-19 13:58:51Z INFO HostContext] Well known directory 'Temp': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_work\_temp'
+[2025-03-19 13:58:51Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IFileCommandExtension'
+[2025-03-19 13:58:51Z INFO ActionManifestManager] Input 'repository': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 6,
+  "col": 14,
+  "lit": "ouldmahammedhamou/CI-CD"
+}
+[2025-03-19 13:58:51Z INFO ActionManifestManager] Input 'ref': default value evaluate result: ""
+[2025-03-19 13:58:51Z INFO ActionManifestManager] Input 'token': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 24,
+  "col": 14,
+  "lit": "***"
+}
+[2025-03-19 13:58:51Z INFO ActionManifestManager] Input 'ssh-key': default value evaluate result: ""
+[2025-03-19 13:58:51Z INFO ActionManifestManager] Input 'ssh-known-hosts': default value evaluate result: ""
+[2025-03-19 13:58:51Z INFO ActionManifestManager] Input 'ssh-strict': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 47,
+  "col": 14,
+  "lit": "true"
+}
+[2025-03-19 13:58:51Z INFO ActionManifestManager] Input 'ssh-user': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 51,
+  "col": 14,
+  "lit": "git"
+}
+[2025-03-19 13:58:51Z INFO ActionManifestManager] Input 'persist-credentials': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 54,
+  "col": 14,
+  "lit": "true"
+}
+[2025-03-19 13:58:51Z INFO ActionManifestManager] Input 'path': default value evaluate result: ""
+[2025-03-19 13:58:51Z INFO ActionManifestManager] Input 'clean': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 59,
+  "col": 14,
+  "lit": "true"
+}
+[2025-03-19 13:58:51Z INFO ActionManifestManager] Input 'filter': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 64,
+  "col": 14,
+  "lit": ""
+}
+[2025-03-19 13:58:51Z INFO ActionManifestManager] Input 'sparse-checkout': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 69,
+  "col": 14,
+  "lit": ""
+}
+[2025-03-19 13:58:51Z INFO ActionManifestManager] Input 'sparse-checkout-cone-mode': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 73,
+  "col": 14,
+  "lit": "true"
+}
+[2025-03-19 13:58:51Z INFO ActionManifestManager] Input 'fetch-depth': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 76,
+  "col": 14,
+  "lit": "1"
+}
+[2025-03-19 13:58:51Z INFO ActionManifestManager] Input 'fetch-tags': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 79,
+  "col": 14,
+  "lit": "false"
+}
+[2025-03-19 13:58:51Z INFO ActionManifestManager] Input 'show-progress': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 82,
+  "col": 14,
+  "lit": "true"
+}
+[2025-03-19 13:58:51Z INFO ActionManifestManager] Input 'lfs': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 85,
+  "col": 14,
+  "lit": "false"
+}
+[2025-03-19 13:58:51Z INFO ActionManifestManager] Input 'submodules': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 94,
+  "col": 14,
+  "lit": "false"
+}
+[2025-03-19 13:58:51Z INFO ActionManifestManager] Input 'set-safe-directory': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 97,
+  "col": 14,
+  "lit": "true"
+}
+[2025-03-19 13:58:51Z INFO ActionManifestManager] Input 'github-server-url': default value evaluate result: ""
+[2025-03-19 13:58:51Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IActionCommandExtension'
+[2025-03-19 13:58:51Z INFO ActionCommandManager] Register action command extension for command internal-set-repo-path
+[2025-03-19 13:58:51Z INFO ActionCommandManager] Register action command extension for command set-env
+[2025-03-19 13:58:51Z INFO ActionCommandManager] Register action command extension for command set-output
+[2025-03-19 13:58:51Z INFO ActionCommandManager] Register action command extension for command save-state
+[2025-03-19 13:58:51Z INFO ActionCommandManager] Register action command extension for command add-path
+[2025-03-19 13:58:51Z INFO ActionCommandManager] Register action command extension for command add-mask
+[2025-03-19 13:58:51Z INFO ActionCommandManager] Register action command extension for command add-matcher
+[2025-03-19 13:58:51Z INFO ActionCommandManager] Register action command extension for command remove-matcher
+[2025-03-19 13:58:51Z INFO ActionCommandManager] Register action command extension for command warning
+[2025-03-19 13:58:51Z INFO ActionCommandManager] Register action command extension for command error
+[2025-03-19 13:58:51Z INFO ActionCommandManager] Register action command extension for command notice
+[2025-03-19 13:58:51Z INFO ActionCommandManager] Register action command extension for command debug
+[2025-03-19 13:58:51Z INFO ActionCommandManager] Register action command extension for command group
+[2025-03-19 13:58:51Z INFO ActionCommandManager] Register action command extension for command endgroup
+[2025-03-19 13:58:51Z INFO ActionCommandManager] Register action command extension for command echo
+[2025-03-19 13:58:51Z INFO HostContext] Well known directory 'Bin': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\bin'
+[2025-03-19 13:58:51Z INFO HostContext] Well known directory 'Root': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner'
+[2025-03-19 13:58:51Z INFO HostContext] Well known directory 'Externals': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\externals'
+[2025-03-19 13:58:51Z INFO ProcessInvokerWrapper] Starting process:
+[2025-03-19 13:58:51Z INFO ProcessInvokerWrapper]   File name: 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\externals\node20\bin\node.exe'
+[2025-03-19 13:58:51Z INFO ProcessInvokerWrapper]   Arguments: '"C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_work\_actions\actions\checkout\v4\dist/index.js"'
+[2025-03-19 13:58:51Z INFO ProcessInvokerWrapper]   Working directory: 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_work\CI-CD\CI-CD'
+[2025-03-19 13:58:51Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2025-03-19 13:58:51Z INFO ProcessInvokerWrapper]   Encoding web name: utf-8 ; code page: '65001'
+[2025-03-19 13:58:51Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2025-03-19 13:58:51Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2025-03-19 13:58:51Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2025-03-19 13:58:51Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2025-03-19 13:58:51Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2025-03-19 13:58:51Z INFO ProcessInvokerWrapper] Process started with process id 50352, waiting for process exit.
+[2025-03-19 13:58:51Z INFO JobServerQueue] Try to append 1 batches web console lines for record '2d57cf22-de50-4364-92db-3d2eeec6a9bc', success rate: 1/1.
+[2025-03-19 13:58:51Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-03-19 13:58:51Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-03-19 13:58:51Z INFO ProcessInvokerWrapper] Finished process 50352 with exit code 0, and elapsed time 00:00:00.2014892.
+[2025-03-19 13:58:51Z INFO CreateStepSummaryCommand] Step Summary file (C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_work\_temp\_runner_file_commands\step_summary_7ff52d7a-b2e0-4b7f-945a-2a1b9de219bf) is empty; skipping attachment upload
+[2025-03-19 13:58:51Z INFO StepsRunner] Step result: 
+[2025-03-19 13:58:51Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "actions/checkout",
+  "ref": "v4",
+  "type": "node20",
+  "stage": "Post",
+  "stepId": "2d57cf22-de50-4364-92db-3d2eeec6a9bc",
+  "result": "succeeded",
+  "errorMessages": [],
+  "executionTimeInSeconds": 1,
+  "startTime": "2025-03-19T13:58:51.5257409Z",
+  "finishTime": "2025-03-19T13:58:51.7737199Z"
+}.
+[2025-03-19 13:58:51Z INFO StepsRunner] No need for updating job result with current step result 'Succeeded'.
+[2025-03-19 13:58:51Z INFO StepsRunner] Current state: job state = 'Failed'
+[2025-03-19 13:58:51Z INFO JobRunner] Finalize job.
+[2025-03-19 13:58:51Z INFO HostContext] Well known directory 'Bin': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\bin'
+[2025-03-19 13:58:51Z INFO HostContext] Well known directory 'Root': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner'
+[2025-03-19 13:58:51Z INFO HostContext] Well known directory 'Diag': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_diag'
+[2025-03-19 13:58:51Z INFO HostContext] Well known directory 'Bin': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\bin'
+[2025-03-19 13:58:51Z INFO HostContext] Well known directory 'Root': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner'
+[2025-03-19 13:58:51Z INFO HostContext] Well known directory 'Diag': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_diag'
+[2025-03-19 13:58:51Z INFO JobExtension] Initialize Env context
+[2025-03-19 13:58:51Z INFO JobExtension] Initialize steps context
+[2025-03-19 13:58:51Z INFO JobExtension] Total accessible running process: 384.
+[2025-03-19 13:58:51Z INFO JobExtension] Inspecting process environment variables. PID: 101604 (WmiPrvSE)
+[2025-03-19 13:58:51Z WARN JobExtension] Ignore exception during read process environment variables: Accès refusé.
+[2025-03-19 13:58:51Z INFO JobServerQueue] Got a step log file to send to results service.
+[2025-03-19 13:58:51Z INFO JobServerQueue] Starting upload of step log file to results service ResultsLog, C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_diag\blocks\1d1eaedf-3f1d-4452-8fda-39664160a16e_1a3446d7-f888-4403-94c0-d1c59ac3e792.1
+[2025-03-19 13:58:51Z INFO JobExtension] Inspecting process environment variables. PID: 105032 (docker)
+[2025-03-19 13:58:51Z INFO JobServerQueue] Try to upload 2 log files or attachments, success rate: 2/2.
+[2025-03-19 13:58:51Z INFO JobExtension] Inspecting process environment variables. PID: 86040 (conhost)
+[2025-03-19 13:58:51Z INFO JobExtension] Inspecting process environment variables. PID: 2788 (docker)
+[2025-03-19 13:58:51Z INFO JobServerQueue] Try to append 1 batches web console lines for record '1fdc1225-d4bb-4331-8c59-221be0436ffb', success rate: 1/1.
+[2025-03-19 13:58:51Z INFO JobExtension] Inspecting process environment variables. PID: 51428 (conhost)
+[2025-03-19 13:58:51Z INFO JobExtension] Inspecting process environment variables. PID: 69648 (docker)
+[2025-03-19 13:58:51Z INFO JobExtension] Inspecting process environment variables. PID: 67572 (conhost)
+[2025-03-19 13:58:51Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "complete_job",
+  "type": "runner",
+  "stage": "Post",
+  "stepId": "1fdc1225-d4bb-4331-8c59-221be0436ffb",
+  "result": "succeeded",
+  "errorMessages": [],
+  "executionTimeInSeconds": 1,
+  "startTime": "2025-03-19T13:58:51.7808557Z",
+  "finishTime": "2025-03-19T13:58:51.8741006Z"
+}.
+[2025-03-19 13:58:51Z INFO JobRunner] Job result after all job steps finish: Failed
+[2025-03-19 13:58:51Z INFO JobRunner] Completing the job execution context.
+[2025-03-19 13:58:51Z INFO JobRunner] Shutting down the job server queue.
+[2025-03-19 13:58:51Z INFO JobServerQueue] Fire signal to shutdown all queues.
+[2025-03-19 13:58:52Z INFO JobServerQueue] Got a step log file to send to results service.
+[2025-03-19 13:58:52Z INFO JobServerQueue] Starting upload of step log file to results service ResultsLog, C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_diag\blocks\1d1eaedf-3f1d-4452-8fda-39664160a16e_2d57cf22-de50-4364-92db-3d2eeec6a9bc.1
+[2025-03-19 13:58:52Z INFO JobServerQueue] Tried to upload 2 file(s) to results, success rate: 2/2.
+[2025-03-19 13:58:53Z INFO JobServerQueue] All queue process task stopped.
+[2025-03-19 13:58:53Z INFO JobServerQueue] Web console line queue drained.
+[2025-03-19 13:58:53Z INFO JobServerQueue] Uploading 2 files in one shot.
+[2025-03-19 13:58:53Z INFO JobServerQueue] Try to upload 2 log files or attachments, success rate: 2/2.
+[2025-03-19 13:58:53Z INFO JobServerQueue] File upload queue drained.
+[2025-03-19 13:58:53Z INFO JobServerQueue] Starting results-based upload queue...
+[2025-03-19 13:58:53Z INFO JobServerQueue] Uploading 2 file(s) in one shot through results service.
+[2025-03-19 13:58:53Z INFO JobServerQueue] Got a step log file to send to results service.
+[2025-03-19 13:58:53Z INFO JobServerQueue] Starting upload of step log file to results service ResultsLog, C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_diag\blocks\1d1eaedf-3f1d-4452-8fda-39664160a16e_1fdc1225-d4bb-4331-8c59-221be0436ffb.1
+[2025-03-19 13:58:54Z INFO JobServerQueue] Got a job log file to send to results service.
+[2025-03-19 13:58:54Z INFO JobServerQueue] Starting upload of job log file to results service ResultsLog, C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_diag\blocks\1d1eaedf-3f1d-4452-8fda-39664160a16e_c9fb19ee-c0b5-520c-bfe1-3b48c6154586.1
+[2025-03-19 13:58:54Z INFO JobServerQueue] Tried to upload 2 file(s) to results, success rate: 2/2.
+[2025-03-19 13:58:54Z INFO JobServerQueue] Results upload queue drained.
+[2025-03-19 13:58:54Z INFO JobServerQueue] Timeline update queue drained.
+[2025-03-19 13:58:54Z INFO JobServerQueue] Disposing job server ...
+[2025-03-19 13:58:54Z INFO JobServerQueue] Disposing results server ...
+[2025-03-19 13:58:54Z INFO JobServerQueue] All queue process tasks have been stopped, and all queues are drained.
+[2025-03-19 13:58:54Z INFO TempDirectoryManager] Cleaning runner temp folder: C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_work\_temp
+[2025-03-19 13:58:54Z INFO HostContext] Well known directory 'Bin': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\bin'
+[2025-03-19 13:58:54Z INFO HostContext] Well known directory 'Root': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner'
+[2025-03-19 13:58:54Z INFO HostContext] Well known directory 'Diag': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_diag'
+[2025-03-19 13:58:54Z INFO HostContext] Well known config file 'Telemetry': 'C:\Users\ouldr\OneDrive\Bureau\rahimdocker\CI-CD\actions-runner\_diag\.telemetry'
+[2025-03-19 13:58:54Z INFO JobRunner] Raising job completed against run service
+[2025-03-19 13:58:55Z INFO Worker] Job completed.
