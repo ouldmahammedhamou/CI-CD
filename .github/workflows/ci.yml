@@ -1,5 +1,5 @@
 name: CI Pipeline
-#### test 11
+#### test 2
 on:
   push:
     branches:
@@ -61,6 +61,6 @@ jobs:
           version: 'latest'
       - name: Déployer sur Kubernetes
         run: |
-          kubectl set image deployment/hello-world-node hello-world-node=ouldmahammed/hello-world-node:latest --record
+          kubectl set image deployment/hello-world-node hello-world-node=ouldmahammed/hello-world-node:latest 
         env:
           KUBECONFIG: ${{ secrets.KUBECONFIG }}
