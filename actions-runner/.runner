@@ -1,0 +1,9 @@
+﻿{
+  "agentId": 4,
+  "agentName": "Hamou11",
+  "poolId": 1,
+  "poolName": "Default",
+  "serverUrl": "https://pipelinesghubeus9.actions.githubusercontent.com/PdtU51WDWCCnMKmn0hmHXDHtBftpRdZPRTCXdtzIticdsrzZPD/",
+  "gitHubUrl": "https://github.com/ouldmahammedhamou/CI-CD",
+  "workFolder": "_work"
+}

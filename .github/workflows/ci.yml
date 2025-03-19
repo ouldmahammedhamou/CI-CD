@@ -12,6 +12,13 @@ jobs:
       - uses: actions/checkout@v4
         name: Checkout du code source
 
+      - name: Vérifier l'environnement
+        run: |
+          docker --version
+          docker ps
+          kubectl version --client
+        continue-on-error: true
+
       - name: Installation de Kind
         uses: helm/kind-action@v1.8.0
         with:
@@ -20,56 +27,43 @@ jobs:
 
       - name: Construire l'image Docker
         run: |
+          echo "Début de la construction de l'image..."
           docker build -t ouldmahammed/hello-world-node:${{ github.sha }} .
+          echo "Image construite avec succès"
 
       - name: Connexion à Docker Hub
         run: |
+          echo "Tentative de connexion à Docker Hub..."
           echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u ouldmahammed --password-stdin
+        continue-on-error: false
 
       - name: Pousser l'image Docker
         run: |
+          echo "Étiquetage de l'image..."
           docker tag ouldmahammed/hello-world-node:${{ github.sha }} ouldmahammed/hello-world-node:latest
+          echo "Push de l'image..."
           docker push ouldmahammed/hello-world-node:latest
 
       - name: Vérifier que le cluster est prêt
         run: |
+          echo "Vérification du cluster..."
           kubectl cluster-info
           kubectl get nodes
 
-      - name: Charger l'image dans Kind
-        run: |
-          kind load docker-image ouldmahammed/hello-world-node:latest --name kind
-
       - name: Déployer sur Kind
         run: |
+          echo "Création du déploiement..."
           kubectl create deployment hello-world-node --image=ouldmahammed/hello-world-node:latest || true
+          echo "Exposition du service..."
           kubectl expose deployment hello-world-node --type=NodePort --port=80 --target-port=3000 || true
+          echo "Attente du déploiement..."
           kubectl wait --for=condition=available --timeout=300s deployment/hello-world-node
-
-      - name: Obtenir l'URL de l'application
-        run: |
-          NODE_PORT=$(kubectl get service hello-world-node -o jsonpath='{.spec.ports[0].nodePort}')
-          CLUSTER_IP=$(kubectl get nodes -o jsonpath='{.items[0].status.addresses[0].address}')
-          echo "Application accessible sur: http://$CLUSTER_IP:$NODE_PORT"
-          echo "NODE_PORT=$NODE_PORT" >> $GITHUB_ENV
-          echo "CLUSTER_IP=$CLUSTER_IP" >> $GITHUB_ENV
-
-      - name: Installation de ngrok
-        run: |
-          curl -Lo ngrok.zip https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.zip
-          unzip ngrok.zip
-          chmod +x ngrok
-
-      - name: Exposer l'application avec ngrok
-        run: |
-          ./ngrok http $NODE_PORT &
-          sleep 5
-          NGROK_URL=$(curl -s http://localhost:4040/api/tunnels | jq -r '.tunnels[0].public_url')
-          echo "Application accessible publiquement sur: $NGROK_URL"
 
       - name: Vérifier le déploiement
         run: |
-          kubectl get pods
+          echo "État des pods :"
+          kubectl get pods -o wide
+          echo "État des services :"
           kubectl get services
 
   deploy:

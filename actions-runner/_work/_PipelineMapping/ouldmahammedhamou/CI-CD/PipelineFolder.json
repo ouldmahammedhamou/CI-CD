@@ -1,0 +1,12 @@
+﻿{
+  "repositoryName": "ouldmahammedhamou/CI-CD",
+  "pipelineDirectory": "CI-CD",
+  "workspaceDirectory": "CI-CD\\CI-CD",
+  "repositories": {
+    "ouldmahammedhamou/CI-CD": {
+      "repositoryPath": "CI-CD\\CI-CD",
+      "lastRunOn": "03/19/2025 14:28:14 +01:00"
+    }
+  },
+  "lastRunOn": "03/19/2025 14:28:14 +01:00"
+}
