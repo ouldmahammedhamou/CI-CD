@@ -1,12 +1,12 @@
 name: CI Pipeline
-#### test 2
+#### test 
 on:
   push:
     branches:
       - main
 
 jobs:
-  build-and-deploy:
+  build-and-test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -31,13 +31,6 @@ jobs:
           docker tag ouldmahammed/hello-world-node:${{ github.sha }} ouldmahammed/hello-world-node:latest
           docker push ouldmahammed/hello-world-node:latest
 
-      - name: Configurer kubectl
-        run: |
-          mkdir -p $HOME/.kube
-          kind get kubeconfig --name kind > $HOME/.kube/config
-          chmod 600 $HOME/.kube/config
-          kubectl config use-context kind
-
       - name: Vérifier que le cluster est prêt
         run: |
           kubectl cluster-info
@@ -49,24 +42,17 @@ jobs:
 
       - name: Déployer sur Kind
         run: |
-          kubectl create deployment hello-world-node --image=ouldmahammed/hello-world-node:latest || true
-          kubectl rollout restart deployment hello-world-node
-          kubectl expose deployment hello-world-node --type=LoadBalancer --port=80 --target-port=3000 || true
+          kubectl create deployment hello-world-node --image=ouldmahammed/hello-world-node:latest
+          kubectl expose deployment hello-world-node --type=LoadBalancer --port=80 --target-port=3000
           kubectl wait --for=condition=available --timeout=300s deployment/hello-world-node
 
       - name: Vérifier le déploiement
         run: |
-          kubectl get pods -o wide
+          kubectl get pods
           kubectl get services
-          kubectl get deployments
-
-      - name: Mettre à jour l'image
-        run: |
-          kubectl set image deployment/hello-world-node hello-world-node=ouldmahammed/hello-world-node:latest
-          kubectl rollout status deployment/hello-world-node
 
   deploy:
-    needs: build-and-deploy
+    needs: build-and-test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -75,6 +61,6 @@ jobs:
           version: 'latest'
       - name: Déployer sur Kubernetes
         run: |
-          kubectl set image deployment/hello-world-node hello-world-node=ouldmahammed/hello-world-node:latest 
+          kubectl set image deployment/hello-world-node hello-world-node=ouldmahammed/hello-world-node:latest --record
         env:
           KUBECONFIG: ${{ secrets.KUBECONFIG }}
