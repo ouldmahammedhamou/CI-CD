@@ -1,16 +1,19 @@
 name: CI Pipeline
-
+#### test 
 on:
   push:
     branches:
       - main
 
 jobs:
-  build:
+  build-and-test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         name: Checkout du code source
+
+      - name: Installation de Kind
+        uses: helm/kind-action@v1.8.0
 
       - name: Construire l'image Docker
         run: |
@@ -25,8 +28,23 @@ jobs:
           docker tag ouldmahammed/hello-world-node:${{ github.sha }} ouldmahammed/hello-world-node:latest
           docker push ouldmahammed/hello-world-node:latest
 
+      - name: Charger l'image dans Kind
+        run: |
+          kind load docker-image ouldmahammed/hello-world-node:latest
+
+      - name: Déployer sur Kind
+        run: |
+          kubectl create deployment hello-world-node --image=ouldmahammed/hello-world-node:latest
+          kubectl expose deployment hello-world-node --type=LoadBalancer --port=80 --target-port=3000
+          kubectl wait --for=condition=available --timeout=300s deployment/hello-world-node
+
+      - name: Vérifier le déploiement
+        run: |
+          kubectl get pods
+          kubectl get services
+
   deploy:
-    needs: build
+    needs: build-and-test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
