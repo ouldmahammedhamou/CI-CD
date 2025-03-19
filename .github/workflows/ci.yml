@@ -1,5 +1,6 @@
 name: CI Pipeline
-#### test 1on:
+
+on:
   push:
     branches:
       - main
@@ -41,9 +42,30 @@ jobs:
 
       - name: Déployer sur Kind
         run: |
-          kubectl create deployment hello-world-node --image=ouldmahammed/hello-world-node:latest
-          kubectl expose deployment hello-world-node --type=LoadBalancer --port=80 --target-port=3000
+          kubectl create deployment hello-world-node --image=ouldmahammed/hello-world-node:latest || true
+          kubectl expose deployment hello-world-node --type=NodePort --port=80 --target-port=3000 || true
           kubectl wait --for=condition=available --timeout=300s deployment/hello-world-node
+
+      - name: Obtenir l'URL de l'application
+        run: |
+          NODE_PORT=$(kubectl get service hello-world-node -o jsonpath='{.spec.ports[0].nodePort}')
+          CLUSTER_IP=$(kubectl get nodes -o jsonpath='{.items[0].status.addresses[0].address}')
+          echo "Application accessible sur: http://$CLUSTER_IP:$NODE_PORT"
+          echo "NODE_PORT=$NODE_PORT" >> $GITHUB_ENV
+          echo "CLUSTER_IP=$CLUSTER_IP" >> $GITHUB_ENV
+
+      - name: Installation de ngrok
+        run: |
+          curl -Lo ngrok.zip https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.zip
+          unzip ngrok.zip
+          chmod +x ngrok
+
+      - name: Exposer l'application avec ngrok
+        run: |
+          ./ngrok http $NODE_PORT &
+          sleep 5
+          NGROK_URL=$(curl -s http://localhost:4040/api/tunnels | jq -r '.tunnels[0].public_url')
+          echo "Application accessible publiquement sur: $NGROK_URL"
 
       - name: Vérifier le déploiement
         run: |
@@ -55,7 +77,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      
+
       - name: Installation de Kind
         uses: helm/kind-action@v1.8.0
         with:
@@ -81,8 +103,24 @@ jobs:
         run: |
           kubectl create deployment hello-world-node --image=ouldmahammed/hello-world-node:latest || true
           kubectl rollout restart deployment hello-world-node
-          kubectl expose deployment hello-world-node --type=LoadBalancer --port=80 --target-port=3000 || true
+          kubectl expose deployment hello-world-node --type=NodePort --port=80 --target-port=3000 || true
           kubectl wait --for=condition=available --timeout=300s deployment/hello-world-node
+
+      - name: Obtenir l'URL de l'application
+        run: |
+          NODE_PORT=$(kubectl get service hello-world-node -o jsonpath='{.spec.ports[0].nodePort}')
+          echo "Application accessible sur: http://localhost:$NODE_PORT"
+          echo "NODE_PORT=$NODE_PORT" >> $GITHUB_ENV
+
+      - name: Installation et configuration de ngrok
+        run: |
+          curl -Lo ngrok.zip https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.zip
+          unzip ngrok.zip
+          chmod +x ngrok
+          ./ngrok http $NODE_PORT &
+          sleep 5
+          NGROK_URL=$(curl -s http://localhost:4040/api/tunnels | jq -r '.tunnels[0].public_url')
+          echo "Application accessible publiquement sur: $NGROK_URL"
 
       - name: Vérifier le déploiement
         run: |
